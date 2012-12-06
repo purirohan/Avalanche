@@ -1,0 +1,30 @@
+<div class="centered-text">
+	<h1 class="white">sign up</h1>
+</div>
+<div class="centered-inputs">
+	<%= form_for @user do |f| %>
+		<% if @user.errors.any? %>
+			<div class="error_messages alert alert-info">
+				<h2>Form is invalid</h2>
+				<ul>
+					<% for message in @user.errors.full_messages %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		<p>
+			<%= f.text_field :name, placeholder: "Full name" %>
+		</p>
+		<p>
+			<%= f.text_field :email, placeholder: "Email" %>
+		</p>
+		<p>
+			<%= f.password_field :password, placeholder: "Password" %>
+		</p>
+		<p>
+			<%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
+		</p>
+		<p class="button"><%= f.submit "Create account" %></p>
+	<% end %>
+</div>

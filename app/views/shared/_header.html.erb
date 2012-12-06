@@ -1,0 +1,41 @@
+<div id="header">	
+	<div id="top" class="navbar offshadow">
+		<div class="container" style="width: 940px; margin-left: auto; margin-right: auto;">
+			<div class="navbar-inner">				
+				<div class="nav-collapse">
+					<ul class="nav">	
+						<li style="margin-right: 30px;">
+							<%= link_to root_path do %>
+								<%= content_tag :div, id: "header-logo" do %>
+									<%= image_tag "logo_img.png", :size => "40x40" %>
+								<% end %>
+							<% end %>
+						</li>
+						<li class="divider-vertical"></li>
+						<li>
+							<%= link_to contests_path do %>
+								<%= content_tag :h3, class: "animated-fast" do %>
+									contests
+								<% end %>
+							<% end %>
+						</li>
+						
+					</ul>
+					<ul class="nav pull-right">
+						<li>
+							<!-- sign in or log in or log out -->
+							<div id="user-nav">
+								<% if current_user %>
+									<%= link_to "Sign out", log_out_path %>
+								<% else %>
+									<%= link_to "Sign up", sign_up_path %> or <%= link_to "sign in", log_in_path %>
+								<% end %>
+							</div>
+							<!-- end sign in or log in or log out -->
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

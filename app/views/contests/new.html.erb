@@ -1,0 +1,19 @@
+<div id="back"><%= link_to "&larr; Back".html_safe, user_path(current_user) %></div>
+<div class="centered-text">
+	<h1 class="white">Create a new challenge</h1>
+	<hr class="white">
+</div>
+<div class="centered-600 white">
+	<%= form_for(@contest) do |form| %>
+		<%= form.label :name, "Name of your challenge" %>
+		<%= form.text_field :name, class: "span4" %>
+		<%= form.label :category, "What kind of challenge is this?" %>
+		<%= form.text_field :category %>
+		<%= form.label :ending, "What day should your challenge end?" %>
+		<%= form.text_field :ending, type: "date" %>
+		<%= form.label :desc, "Full description (<i>Optional</i> )".html_safe %>
+		<%= form.text_area :desc, class: "span6" %>
+		<br><br>
+		<%= form.submit "Submit challenge" %> <span class="buttontext">or <%= link_to "cancel", current_user %> </span>
+	<% end %>
+</div>

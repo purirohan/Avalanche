@@ -1,0 +1,23 @@
+<div class="centered-text">
+	<h1 class="white">Welcome, <%= current_user.name %></h1>
+	<i class="white"><%= current_user.email %></i>
+	<hr class="white">
+</div>
+<div class="centered-600 contests">
+	<% @contests.each do |contest| %>
+		<%= link_to contest do %>
+			<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
+				<%= content_tag :h3, class: "animated" do %>
+					<%= contest.name %>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+	<%= link_to new_contest_path do %>
+		<%= content_tag :div, id: "new-contest", class: "contest animated rounded inner-shadow" do %>
+			<%= content_tag :h3, class: "animated white" do %>
+				new contest
+			<% end %>
+		<% end %>
+	<% end %>
+</div>

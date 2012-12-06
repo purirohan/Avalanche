@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  desc: MyString
+  ending: 2012-12-05 11:02:14
+  user: 
+  cause: MyString
+
+two:
+  name: MyString
+  desc: MyString
+  ending: 2012-12-05 11:02:14
+  user: 
+  cause: MyString

@@ -1,0 +1,18 @@
+
+		<div class="centered-inputs">
+			<%= form_for @user do |f| %>
+				<p>
+					<%= f.text_field :name, placeholder: "Full name" %>
+				</p>
+				<p>
+					<%= f.text_field :email, placeholder: "Email" %>
+				</p>				
+				<p>
+					<%= f.password_field :password, placeholder: "Password" %>
+				</p>
+				<p>
+					<%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
+				</p>
+				<p class="button"><%= f.submit "Create account" %></p>
+			<% end %>
+		</div>
