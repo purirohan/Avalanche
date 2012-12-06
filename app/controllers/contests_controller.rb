@@ -11,13 +11,15 @@ class ContestsController < ApplicationController
 		participation = Participation.new
 		participation.contest_id = contest.id
 		participation.user_id = current_user.id
-		participation.admin = true
+		participation.donor = true
+		participation.winner = false
 		participation.save
 		redirect_to contest
 	end
 	
 	def show
 		@contest = Contest.find(params[:id])
+		@owner = current_user.id == @contest.user_id
 	end
 
 end

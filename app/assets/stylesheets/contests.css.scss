@@ -11,13 +11,11 @@
 {
 	background: url('snow.png');
 	opacity: 0.95;
-	width: 140px;
+	width: 48%;
 	height: 140px;
-	margin-left: 5px;
-	margin-right: 5px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	margin: 5px;
 	float: left;
+	position: relative;
 }
 .contest:hover
 {
@@ -40,6 +38,21 @@
 	margin-left: auto;
 	margin-right: auto;
 	text-shadow: none;
-	margin-top: 42%;
+	position: absolute;
+	top: 5px;
+	width: 100%;
 }
 
+.contest button.close
+{
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	opacity: 0.2;
+	z-index: 10;
+}
+
+.contest button.close:hover
+{
+	opacity: 0.4;
+}
