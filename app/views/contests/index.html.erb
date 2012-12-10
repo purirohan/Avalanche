@@ -1,0 +1,9 @@
+<% @contests.each do |contest| %>
+	<%= link_to contest do %>
+		<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
+			<%= content_tag :h3, class: "animated" do %>
+				<%= contest.name %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>

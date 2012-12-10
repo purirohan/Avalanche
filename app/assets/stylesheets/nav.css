@@ -131,11 +131,25 @@ div#user-nav a
 	text-shadow: none;
 }
 
+div#user-nav a:hover
+{
+	text-decoration: underline;
+}
+
 div#back
 {
 	position: absolute;
 	top: 45px;
 	left: 0px;
+	z-index: 10;
+	font-size: 14px;
+}
+
+div#edit
+{
+	position: absolute;
+	top: 45px;
+	right: 0px;
 	z-index: 10;
 	font-size: 14px;
 }

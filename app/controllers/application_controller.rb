@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   helper_method :current_user
+  helper_method :embed_video
   
   # prevent back button from retaining cached sessions
   before_filter :set_cache_buster
@@ -18,4 +19,8 @@ class ApplicationController < ActionController::Base
 	# if we don't already have a @current_user, set it to the one specified by the session (if we have a session)
 	@current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+  
+	def embed_video(contest)
+		"http://www.youtube.com/embed/" + contest.video.split("v=")[1].split("&")[0]
+	end
 end

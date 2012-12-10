@@ -1,6 +1,6 @@
-<div id="back"><%= link_to "&larr; Back".html_safe, user_path(current_user) %></div>
+<div id="back"><%= link_to "&larr; Back".html_safe, @contest %></div>
 <div class="centered-text">
-	<h1 class="white">Create a new challenge</h1>
+	<h1 class="white">Edit '<%= @contest.name %>'</h1>
 	<hr class="white">
 </div>
 <div class="centered-600 white">
@@ -16,6 +16,6 @@
 		<%= form.label :video, "Provide the URL to an optional video prompt (youtube only, please):" %>
 		<%= form.text_field :video, class: "span6" %>
 		<br><br>
-		<%= form.submit "Submit challenge" %> <span class="buttontext">or <%= link_to "cancel", current_user %> </span>
+		<%= form.submit "Save changes" %> <span class="buttontext">or <%= link_to "cancel", @contest %> </span>
 	<% end %>
 </div>

@@ -6,7 +6,11 @@ Avalanche::Application.routes.draw do
 	root :to => "home#index"
 	resources :users
 	resources :sessions, :only => [:new, :create, :destroy]
-	resources :contests
+	resources :contests do
+		resources :rate, :only => [:index]
+		resources :participations, :except => [:index]
+	end
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

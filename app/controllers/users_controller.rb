@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 	end
 	
 	def show
-		@contests = current_user.contests
+		@created = current_user.contests.where("donor = ?", true)
+		@participating = current_user.contests.where("donor = ?", false)
 	end
 end

@@ -1,10 +1,13 @@
 html
 { 
+	
 	background: url("bg.jpg") no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	
+	/*background: url("snow.png");*/
 }
 
 #ie-bg
@@ -58,6 +61,48 @@ body
 	padding-top: 30px;
 	padding-bottom: 30px;
 	position: relative;
+	min-height: 500px;
+	text-align: left;
+}
+
+div.inner, div.inner h1, div.inner h2, div.inner h3
+{
+	color: #FFFFFF;
+}
+
+div#footer
+{
+	background: #FAFAFA;
+	padding-top: 30px;
+	padding-bottom: 60px;
+	margin-top: 15px;
+	color: #555555;
+	z-index: 10;
+	position: relative;
+}
+
+div#footer a
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	color: #555555;
+	text-shadow: none;
+	text-decoration: none;
+}
+
+div#footer a:hover
+{
+	text-decoration: underline;
+}
+
+div#bottom
+{
+	position: absolute;
+	z-index: 5;
+	background: #FAFAFA;
+	bottom: 0;
+	right: 0;
+	left: 0;
 }
 
 .whiteshadow {
@@ -92,6 +137,7 @@ h2
 	font-weight: 400;
 	font-family: 'Galdeano', sans-serif;
 	text-transform: uppercase;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 }
 
 h3
@@ -102,6 +148,12 @@ h3
 	font-weight: 400;
 	font-family: 'Galdeano', sans-serif;
 	text-transform: uppercase;
+}
+
+span.dot
+{
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 div.left
@@ -187,29 +239,7 @@ div.padded-left
 	padding-left: 30px;
 }
 
-div#footer
-{
-	background-image: url('footer.png');
-	padding-top: 30px;
-	padding-bottom: 60px;
-	margin-top: 15px;
-	color: #EEEEEE;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
-}
 
-div#footer a
-{
-	margin-left: 10px;
-	margin-right: 10px;
-	color: #FFFFFF;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
-	text-decoration: none;
-}
-
-div#footer a:hover
-{
-	text-decoration: underline;
-}
 
 span.buttontext
 {
@@ -776,6 +806,14 @@ a.button:hover, input[type="submit"]:hover
 {
 	color: white;
 	text-shadow: 0 0 3px rgba(255,255,255,0.9);
+	text-decoration: none;
+}
+
+a.button.large
+{
+	font-size: 18px;
+	padding: 10px 30px 10px 30px;
+	text-transform: uppercase;
 }
 
 @-moz-document url-prefix() {

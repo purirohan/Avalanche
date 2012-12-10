@@ -1,5 +1,25 @@
+<div class="row">
+	<div class="span7">
+		<h1>Featured Challenge</h1>
+		<%= link_to contest_path(@featured) do %>
+			<%= content_tag :h2 do %>
+				<%= @featured.name %>
+			<% end %>
+		<% end %>
+		<%= content_tag(:iframe, "", :src => @featured_video, :style => "width: 540px; height: 405px;") %>
+		<p></p>
+		<h2>Trending Challenges</h2>
+		<%= content_tag(:iframe, "", :src => @trending1_video, :style => "float: left; width: 263px; height: 197px; margin-right: 2px;") %>
+		<%= content_tag(:iframe, "", :src => @trending2_video, :style => "float: left; width: 263px; height: 197px; margin-left: 2px;") %>
 
+	</div>
+	<div class="span5">
+		<div class="centered-text">
+			<h2>Join the Avalanche</h2>
+			<p></p>
+		</div>
 		<div class="centered-inputs">
+			
 			<%= form_for @user do |f| %>
 				<p>
 					<%= f.text_field :name, placeholder: "Full name" %>
@@ -16,3 +36,12 @@
 				<p class="button"><%= f.submit "Create account" %></p>
 			<% end %>
 		</div>
+		<hr class="white">
+		<div class="centered-text">
+			<h2>About Avalanche</h2>
+		</div>
+		<div class="centered-inputs">
+		<p>Avalanche helps people gain the recognition they deserve.  Challenges are posted, users submit videos showcasing their best efforts to fulfill a challenge's prompt, and socially-driven voting helps to determine the winners. <%= link_to "Read more &raquo;".html_safe, about_path %></p>
+		</div>
+	</div>
+</div>

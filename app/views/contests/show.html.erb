@@ -1,7 +1,24 @@
-<div id="back"><%= link_to "&larr; Back".html_safe, user_path(current_user) %></div>
+<% if @isOwner %>
+	<div id="back"><%= link_to "&larr; Back".html_safe, user_path(current_user) %></div>
+<% else %>
+	<div id="back"><%= link_to "&larr; Back".html_safe, contests_path %></div>
+<% end %>
+<% if @isOwner %>
+	<div id="edit"><%= link_to "Edit &rarr;".html_safe, edit_contest_path(@contest) %></div>
+<% end %>
 <div class="centered-text">
-	<h1 class="white"><%= @contest.name %></h1>
+	<h1><%= @contest.name %></h1>
+	<h2><%= @owner %></h2>
+	<p><b>Category:</b> <%= @contest.category %><span class="dot">&middot;</span><b>Challenge ends:</b> <%= @contest.ending %></p>
+	<br>
+	<%= link_to "Apply", new_contest_participation_path(@contest), class: "button large" %>
+	<hr class="white">
 </div>
-<div class="centered-600">
-	
+<div class="row">
+	<div class="span6">
+		<%= simple_format(@contest.desc) %>
+	</div>
+	<div class="span5">
+		<%= content_tag(:iframe, "", :src => @video, :style => "width: 380px; height: 285px;") %>
+	</div>
 </div>

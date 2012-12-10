@@ -7,7 +7,9 @@
 						<li style="margin-right: 30px;">
 							<%= link_to root_path do %>
 								<%= content_tag :div, id: "header-logo" do %>
-									<%= image_tag "logo_img.png", :size => "40x40" %>
+									<%= content_tag :h2 do %>
+										<%= image_tag "logo_img.png", :size => "40x40" %> Avalanche
+									<% end %>
 								<% end %>
 							<% end %>
 						</li>
@@ -26,7 +28,7 @@
 							<!-- sign in or log in or log out -->
 							<div id="user-nav">
 								<% if current_user %>
-									<%= link_to "Sign out", log_out_path %>
+									<%= link_to current_user.name, current_user %> <%= link_to "&times".html_safe, log_out_path %>
 								<% else %>
 									<%= link_to "Sign up", sign_up_path %> or <%= link_to "sign in", log_in_path %>
 								<% end %>

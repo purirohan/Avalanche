@@ -30,7 +30,7 @@ $(document).ready(function() {
 	
 	$("div.alert").slideDown();
 	
-	delay(function() { $("div.alert").slideUp(); }, 6000);
+	delay(function() { $("div.alert").slideUp(); $("div#flash_notice").slideUp(); }, 6000);
 		
 });
 
@@ -40,6 +40,8 @@ function bg()
 	var left = ($(window).width() - 940) / 2.0;
 	$(".main").css("left", left + "px");
 	*/
+	var offset = $("#top").height() + $(".main").height() + $("#footer").height() + 25;
+	$("#bottom").css("top", offset + "px");
 }
 
 
