@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 	@featured = Contest.first
 	@featured_video = embed_video(@featured)
 	@trending1 = Contest.last
-	@trending2 = Contest.find(5)
+	@trending2 = Contest.last
 	@trending1_video = embed_video(@trending1)
 	@trending2_video = embed_video(@trending2)
   end
