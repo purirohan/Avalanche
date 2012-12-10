@@ -9,6 +9,7 @@ Avalanche::Application.routes.draw do
 	resources :contests do
 		resources :rate, :only => [:index]
 		resources :participations, :only => [:new, :create, :destroy, :show]
+		resources :ratings, :only => [:create]
 	end
 	
   # The priority is based upon order of creation:

@@ -34,6 +34,9 @@ class ParticipationsController < ApplicationController
 	
 	def show #only for the creator of the contest to view
 		@contest = Contest.find(params[:contest_id])
+		if @contest.user_id != current_user
+			redirect_to contest_rate_index_path(@contest)
+		end
 		@participation = Participation.find(params[:id])
 		@submitter = User.find(@participation.user_id).name
 		@video = embed_video(@participation)

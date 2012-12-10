@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base	
 	has_many :contests, :through => :participations
 	has_many :participations
+	has_many :ratings
 	attr_accessible :email, :name, :password, :password_confirmation
 	
 	attr_accessor :password

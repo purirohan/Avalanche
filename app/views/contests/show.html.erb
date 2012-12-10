@@ -35,6 +35,7 @@
 		<h2>Submissions</h2>
 		<% @submissions.each do |submission| %>
 			<%= content_tag :div, class: "submission animated inner-shadow" do %>
+				<div><%= submission.submitter %><span class="dot">&middot;</span><%= submission.score %> point(s)</div>
 				<%= link_to "", [@contest, submission], class: "follow" %>
 				<% if current_user.id == submission.user_id %>
 					<%= link_to [@contest, submission], method: :delete, confirm: "Are you sure you want to your application to this contest?" do %>

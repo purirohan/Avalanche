@@ -1,0 +1,21 @@
+<div id="back"><%= link_to "&larr; Back".html_safe, @contest %></div>
+<div class="centered-text">
+	<h1 class="white">Rate submissions</h1>
+	You are currently rating submissions to <%= link_to @contest.name, @contest %></h2>
+	<hr class="white">
+</div>
+
+<%= content_tag(:iframe, "", :src => @first_vid_embed, :style => "width: 450px; height: 338px;") %>
+<%= content_tag(:iframe, "", :src => @second_vid_embed, :style => "width: 450px; height: 338px;") %>
+
+<div style="overflow: hidden; padding-top: 30px; padding-bottom: 30px;">
+	<div class="left" style="width: 450px;" align="center">
+		<%= link_to "Vote for this submission", contest_ratings_path(@contest, :better => @first_vid.id, :worse => @second_vid.id ), method: "post", class: "button large" %>
+	</div>
+	<div class="left" style="width: 40px;" align="center">
+	OR
+	</div>
+	<div class="left" style="width: 450px;" align="center">
+		<%= link_to "Vote for this submission", contest_ratings_path(@contest, :better => @second_vid.id, :worse => @first_vid.id ), method: "post", class: "button large" %>
+	</div>
+</div>
