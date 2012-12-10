@@ -1,3 +1,39 @@
 // Place all the styles related to the Participations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.submissions
+{
+	overflow: hidden;
+}
+
+.submission
+{
+	float: left;
+	position: relative;
+	padding: 20px;
+	background: #FFFFFF;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.submission a.follow
+{
+	position: absolute;
+	top: 0; right: 0; left: 0; bottom: 0;
+	z-index: 5;
+}
+
+.submission button.close
+{
+	position: absolute;
+	top: 4px;
+	right: 7px;
+	opacity: 0.2;
+	z-index: 10;
+}
+
+.submission button.close:hover
+{
+	opacity: 0.4;
+}

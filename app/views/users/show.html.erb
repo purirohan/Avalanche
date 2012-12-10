@@ -1,56 +1,89 @@
-<div class="centered-text">
-	<h1 class="white">Welcome, <%= current_user.name %></h1>
-	<i class="white"><%= current_user.email %></i>
-	<hr class="white">
-</div>
-<div class="centered-600">
-	<h2 class="white">Challenges you've created</h2>
-	<div class="contests">
-		<% @created.each do |contest| %>
-			<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
-				<%= link_to "", contest, class: "follow" %>
-				<%= link_to [contest], method: :delete, confirm: "Are you sure you want to delete this challenge?" do %>
-					<%= content_tag :button, class: "close animated", type: "button" do %>
-						&times;
-					<% end %>
-				<% end %>
-				<%= content_tag :h3, class: "animated" do %>
-					<%= contest.name %>
-				<% end %>
-			<% end %>
-		<% end %>
-		<%= link_to new_contest_path do %>
-			<%= content_tag :div, id: "new-contest", class: "contest animated rounded inner-shadow" do %>
-				<%= content_tag :h3, class: "animated white" do %>
-					new challenge
-				<% end %>
-				<div class="centered-text">
-					<%= image_tag "logo_img.png", :size => "60x60" %>
-				</div>
-			<% end %>
-		<% end %>
+<% if current_user.id == @user.id %>
+	<div class="centered-text">
+		<h1 class="white">Welcome, <%= current_user.name %></h1>
+		<i class="white"><%= current_user.email %></i>
+		<hr class="white">
 	</div>
-	<hr class="white">
-	<h2 class="white" style="margin-top: 15px;">Challenges you're participating in</h2>
-	<div class="contests">
-		<% @participating.each do |contest| %>
-			<%= link_to contest do %>
+	<div class="centered-600">
+		<h2 class="white">Challenges you've created</h2>
+		<div class="contests">
+			<% @created.each do |contest| %>
 				<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
+					<%= link_to "", contest, class: "follow" %>
+					<%= link_to [contest], method: :delete, confirm: "Are you sure you want to delete this challenge?" do %>
+						<%= content_tag :button, class: "close animated", type: "button" do %>
+							&times;
+						<% end %>
+					<% end %>
 					<%= content_tag :h3, class: "animated" do %>
 						<%= contest.name %>
 					<% end %>
 				<% end %>
 			<% end %>
-		<% end %>
-		<%= link_to contests_path do %>
-			<%= content_tag :div, id: "new-contest", class: "contest animated rounded inner-shadow" do %>
-				<%= content_tag :h3, class: "animated white" do %>
-					find challenges
+			<%= link_to new_contest_path do %>
+				<%= content_tag :div, id: "new-contest", class: "contest animated rounded inner-shadow" do %>
+					<%= content_tag :h3, class: "animated white" do %>
+						new challenge
+					<% end %>
+					<div class="centered-text">
+						<%= image_tag "logo_img.png", :size => "60x60" %>
+					</div>
 				<% end %>
-				<div class="centered-text">
-					<%= image_tag "logo_img.png", :size => "60x60" %>
-				</div>
 			<% end %>
-		<% end %>
+		</div>
+		<hr class="white">
+		<h2 class="white" style="margin-top: 15px;">Challenges you're participating in</h2>
+		<div class="contests">
+			<% @participating.each do |contest| %>
+				<%= link_to contest do %>
+					<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
+						<%= content_tag :h3, class: "animated" do %>
+							<%= contest.name %>
+						<% end %>
+					<% end %>
+				<% end %>
+			<% end %>
+			<%= link_to contests_path do %>
+				<%= content_tag :div, id: "new-contest", class: "contest animated rounded inner-shadow" do %>
+					<%= content_tag :h3, class: "animated white" do %>
+						find challenges
+					<% end %>
+					<div class="centered-text">
+						<%= image_tag "logo_img.png", :size => "60x60" %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
 	</div>
-</div>
+<% else %>
+	<div class="centered-text">
+		<h1 class="white"><%= @user.name %></h1>
+		<hr class="white">
+	</div>
+	<div class="centered-600">
+		<h2 class="white">Challenges <%= @user.name %> has created:</h2>
+		<div class="contests">
+			<% @created.each do |contest| %>
+				<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
+					<%= link_to "", contest, class: "follow" %>
+					<%= content_tag :h3, class: "animated" do %>
+						<%= contest.name %>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+		<hr class="white">
+		<h2 class="white" style="margin-top: 15px;">Challenges <%= @user.name %> is participating in:</h2>
+		<div class="contests">
+			<% @participating.each do |contest| %>
+				<%= link_to contest do %>
+					<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
+						<%= content_tag :h3, class: "animated" do %>
+							<%= contest.name %>
+						<% end %>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+<% end %>

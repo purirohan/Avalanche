@@ -30,8 +30,15 @@ class ContestsController < ApplicationController
 		end
 		@contest = Contest.find(params[:id])
 		@isOwner = current_user != nil && current_user.id == @contest.user_id
+		@has_submitted = Participation.where("contest_id = ? AND user_id = ?", params[:id], current_user.id).blank? == false
+		if @has_submitted
+			@curr_user_submission = Participation.where("contest_id = ? AND user_id = ?", params[:id], current_user.id)[0]
+		end
 		@owner = User.find(@contest.user_id).name
 		@video = embed_video(@contest)
+		
+		@submissions = Participation.where("contest_id = ? AND user_id != ?", params[:id], @contest.user_id)
+		
 	end
 	
 	def edit
@@ -43,8 +50,8 @@ class ContestsController < ApplicationController
 	end
 	
 	def update
-		@contest = Contest.find(params[:id])
-		if !current_user || current_user.id != @contest.user_id
+		contest = Contest.find(params[:id])
+		if !current_user || current_user.id != contest.user_id
 			redirect_to root_path
 		end
 		contest.update_attributes(params[:contest]) 
@@ -52,11 +59,11 @@ class ContestsController < ApplicationController
 	end
 	
 	def destroy
-		@contest = Contest.find(params[:id])
-		if !current_user || current_user.id != @contest.user_id
+		contest = Contest.find(params[:id])
+		if !current_user || current_user.id != contest.user_id
 			redirect_to root_path
 		end
-		@contest.destroy
+		contest.destroy
 		redirect_to current_user
 	end
 

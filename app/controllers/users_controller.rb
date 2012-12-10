@@ -14,7 +14,9 @@ class UsersController < ApplicationController
 	end
 	
 	def show
-		@created = current_user.contests.where("donor = ?", true)
-		@participating = current_user.contests.where("donor = ?", false)
+		@user = User.find(params[:id])
+		@created = @user.contests.where("donor = ?", true)
+		@participating = @user.contests.where("donor = ?", false)
+		
 	end
 end

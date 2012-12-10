@@ -1,17 +1,27 @@
 <div class="row">
 	<div class="span7">
 		<h1>Featured Challenge</h1>
-		<%= link_to contest_path(@featured) do %>
-			<%= content_tag :h2 do %>
-				<%= @featured.name %>
-			<% end %>
+
+		<%= content_tag :h2 do %>
+			<%= @featured.name %>
 		<% end %>
-		<%= content_tag(:iframe, "", :src => @featured_video, :style => "width: 540px; height: 405px;") %>
+		<div class="featured">
+			<%= link_to "", @featured, class: "follow" %>
+			<%= content_tag(:iframe, "", :src => @featured_video, :style => "width: 540px; height: 405px;") %>
+		</div>
 		<p></p>
 		<h2>Trending Challenges</h2>
-		<%= content_tag(:iframe, "", :src => @trending1_video, :style => "float: left; width: 263px; height: 197px; margin-right: 2px;") %>
-		<%= content_tag(:iframe, "", :src => @trending2_video, :style => "float: left; width: 263px; height: 197px; margin-left: 2px;") %>
-
+		<div class="trenders">
+			<div class="trending">
+				<%= link_to "", @trending1, class: "follow" %>
+				<%= content_tag(:iframe, "", :src => @trending1_video, :style => "float: left; width: 263px; height: 197px; margin-right: 2px;") %>
+			</div>
+			<div class="trending">
+				<%= link_to "", @trending2, class: "follow" %>
+				<%= content_tag(:iframe, "", :src => @trending2_video, :style => "float: left; width: 263px; height: 197px; margin-left: 2px;") %>
+			</div>
+		</div>
+		
 	</div>
 	<div class="span5">
 		<div class="centered-text">
