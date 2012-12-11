@@ -1,8 +1,9 @@
-<div id="back"><%= link_to "&larr; Back".html_safe, @contest %></div>
+<div id="back"><%= link_to "&larr; Back".html_safe, @contest, class: "button" %></div>
 <div class="centered-text">
-	<h2 class="white"><%= @submitter %>'s submission to '<%= @contest.name %>'</h2>
-	<hr class="white">
-</div>
-<div class="centered-600 white">
+	<h1><%= @contest.name %></h1>
+	<h2><%= @submitter %>'s submission</h2>
+	<hr>
+	<%= link_to "Vote up this submission", contest_ratings_path(@contest, :video => @participation.id), method: "post", class: "button large" %> <%= link_to "Next submission", contest_ratings_path(@contest), class: "button" %>
+	<br><br><br>
 	<%= content_tag(:iframe, "", :src => @video, :style => "width: 540px; height: 405px;") %>
 </div>

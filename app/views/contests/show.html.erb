@@ -1,10 +1,10 @@
 <% if @isOwner %>
-	<div id="back"><%= link_to "&larr; Back".html_safe, user_path(current_user) %></div>
+	<div id="back"><%= link_to "&larr; Back".html_safe, user_path(current_user), class: "button" %></div>
 <% else %>
-	<div id="back"><%= link_to "&larr; Back".html_safe, contests_path %></div>
+	<div id="back"><%= link_to "&larr; Back".html_safe, contests_path, class: "button" %></div>
 <% end %>
 <% if @isOwner %>
-	<div id="edit"><%= link_to "Edit &rarr;".html_safe, edit_contest_path(@contest) %></div>
+	<div id="edit"><%= link_to "Edit &rarr;".html_safe, edit_contest_path(@contest), class: "button" %></div>
 <% end %>
 <div class="centered-text">
 	<h1><%= @contest.name %></h1>
@@ -20,32 +20,38 @@
 		<% end %>
 	<% end %>
 	
-	<hr class="white">
+	<hr>
 </div>
 <div class="row">
 	<div class="span6">
-		<%= simple_format(@contest.desc) %>
+		<div class="padded-sides">
+			<%= simple_format(@contest.desc) %>
+		</div>
 	</div>
 	<div class="span6" style="text-align: right;">
-		<%= content_tag(:iframe, "", :src => @video, :style => "width: 380px; height: 285px;") %>
+		<div class="padded-sides">
+			<%= content_tag(:iframe, "", :src => @video, :style => "width: 380px; height: 285px;") %>
+		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="span12">
-		<h2>Submissions</h2>
-		<% @submissions.each do |submission| %>
-			<%= content_tag :div, class: "submission animated inner-shadow" do %>
-				<div><%= submission.submitter %><span class="dot">&middot;</span><%= submission.score %> point(s)</div>
-				<%= link_to "", [@contest, submission], class: "follow" %>
-				<% if current_user.id == submission.user_id %>
-					<%= link_to [@contest, submission], method: :delete, confirm: "Are you sure you want to your application to this contest?" do %>
-						<%= content_tag :button, class: "close animated", type: "button" do %>
-							&times;
+		<div class="padded-sides">
+			<h2>Submissions</h2>
+			<% @submissions.each do |submission| %>
+				<%= content_tag :div, class: "submission animated" do %>
+					<div><%= submission.submitter %><span class="dot">&middot;</span><%= submission.score %> point(s)</div>
+					<%= link_to "", [@contest, submission], class: "follow" %>
+					<% if current_user.id == submission.user_id %>
+						<%= link_to [@contest, submission], method: :delete, confirm: "Are you sure you want to your application to this contest?" do %>
+							<%= content_tag :button, class: "close animated", type: "button" do %>
+								&times;
+							<% end %>
 						<% end %>
 					<% end %>
+					<%= content_tag(:iframe, "", :src => embed_video(submission), :class => "shadow", :style => "float: left; width: 263px; height: 197px;") %>
 				<% end %>
-				<%= content_tag(:iframe, "", :src => embed_video(submission), :style => "float: left; width: 263px; height: 197px;") %>
 			<% end %>
-		<% end %>
+		</div>
 	</div>
 </div>

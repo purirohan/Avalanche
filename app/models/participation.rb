@@ -4,7 +4,7 @@ class Participation < ActiveRecord::Base
 	attr_accessible :donor, :winner, :video
 	
 	def score		
-		(Rating.where("better = ?", self.id).count * 3) - Rating.where("worse = ?", self.id).count		
+		Rating.where("video = ?", self.id).count		
 	end
 	
 	def submitter

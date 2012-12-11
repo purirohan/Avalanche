@@ -1,9 +1,9 @@
-<div id="back"><%= link_to "&larr; Back".html_safe, user_path(current_user) %></div>
+<div id="back"><%= link_to "&larr; Back".html_safe, user_path(current_user), class: "button" %></div>
 <div class="centered-text">
-	<h1 class="white">Create a new challenge</h1>
-	<hr class="white">
+	<h1>Create a new challenge</h1>
+	<hr>
 </div>
-<div class="centered-600 white">
+<div class="centered-600">
 	<%= form_for(@contest) do |form| %>
 		<%= form.label :name, "Name of your challenge" %>
 		<%= form.text_field :name, class: "span4" %>

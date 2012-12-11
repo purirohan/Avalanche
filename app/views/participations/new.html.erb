@@ -1,9 +1,9 @@
-<div id="back"><%= link_to "&larr; Back".html_safe, @contest %></div>
+<div id="back"><%= link_to "&larr; Back".html_safe, @contest, class: "button" %></div>
 <div class="centered-text">
-	<h1 class="white">Apply to '<%= @contest.name %>'</h1>
-	<hr class="white">
+	<h1>Apply to '<%= @contest.name %>'</h1>
+	<hr>
 </div>
-<div class="centered-600 white">
+<div class="centered-600">
 	<%= form_for([@contest, @participation]) do |form| %>
 		<%= form.label :video, "Video URL (youtube only, please):" %>
 		<%= form.text_field :video, class: "span6" %>

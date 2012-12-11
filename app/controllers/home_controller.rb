@@ -3,10 +3,7 @@ class HomeController < ApplicationController
 	@user = User.new
 	@featured = Contest.first
 	@featured_video = embed_video(@featured)
-	@trending1 = Contest.last
-	@trending2 = Contest.last
-	@trending1_video = embed_video(@trending1)
-	@trending2_video = embed_video(@trending2)
+	@featured_text = @featured.desc_preview(232)
   end
   
   def about

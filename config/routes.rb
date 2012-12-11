@@ -7,9 +7,8 @@ Avalanche::Application.routes.draw do
 	resources :users
 	resources :sessions, :only => [:new, :create, :destroy]
 	resources :contests do
-		resources :rate, :only => [:index]
 		resources :participations, :only => [:new, :create, :destroy, :show]
-		resources :ratings, :only => [:create]
+		resources :ratings, :only => [:index, :create]
 	end
 	
   # The priority is based upon order of creation:

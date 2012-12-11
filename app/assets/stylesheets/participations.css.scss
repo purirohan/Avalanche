@@ -11,13 +11,16 @@
 {
 	float: left;
 	position: relative;
-	padding: 20px;
-	background: #FFFFFF;
-	margin-left: 2px;
-	margin-right: 2px;
-	margin-top: 2px;
-	margin-bottom: 2px;
+	padding: 10px;
+	margin-left: 0px;
+	margin-right: 5px;
+	margin-bottom: 5px;
 	color: #555555;
+}
+
+.submission iframe
+{
+	border: 1px solid #DDDDDD;
 }
 
 .submission a.follow

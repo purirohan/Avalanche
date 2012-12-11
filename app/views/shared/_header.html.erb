@@ -1,5 +1,5 @@
 <div id="header">	
-	<div id="top" class="navbar offshadow">
+	<div id="top" class="navbar">
 		<div class="container" style="width: 940px; margin-left: auto; margin-right: auto;">
 			<div class="navbar-inner">				
 				<div class="nav-collapse">
@@ -8,7 +8,7 @@
 							<%= link_to root_path do %>
 								<%= content_tag :div, id: "header-logo" do %>
 									<%= content_tag :h2 do %>
-										<%= image_tag "logo_img.png", :size => "40x40" %> Avalanche
+										<%= image_tag "logo.png", :size => "350x70" %>
 									<% end %>
 								<% end %>
 							<% end %>
@@ -28,7 +28,7 @@
 							<!-- sign in or log in or log out -->
 							<div id="user-nav">
 								<% if current_user %>
-									<%= link_to current_user.name, current_user %> <%= link_to '&rarr;'.html_safe, log_out_path %>
+									<%= link_to current_user.name, current_user %> <%= link_to "&rarr;".html_safe, log_out_path %>
 								<% else %>
 									<%= link_to "Sign up", sign_up_path %> or <%= link_to "sign in", log_in_path %>
 								<% end %>

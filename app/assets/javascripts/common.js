@@ -28,20 +28,26 @@ $(document).ready(function() {
 	
 	bg();
 	
-	$("div.alert").slideDown();
+	$(".alert").slideDown();
+	$("[id$='flash_']").slideDown();
 	
-	delay(function() { $("div.alert").slideUp(); $("div#flash_notice").slideUp(); }, 6000);
+	delay(function() { $(".alert").slideUp(); $("[id$='flash_']").slideUp(); }, 6000);
 		
 });
 
 function bg()
 {
-	/*
+	
 	var left = ($(window).width() - 940) / 2.0;
-	$(".main").css("left", left + "px");
-	*/
+	$(".inner").css("left", left + "px");
+	
 	var offset = $("#top").height() + $(".main").height() + $("#footer").height() + 25;
 	$("#bottom").css("top", offset + "px");
+	
+	if(offset > $(window).height())
+	{
+		$("#footer").addClass("shadow");
+	}
 }
 
 

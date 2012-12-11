@@ -1,57 +1,65 @@
 <div class="row">
+	<div class="span12 splash">
+		<div class="centered-text">
+			<h1 class="white">J O I N<span class="dot"></span><span class="dot"></span>T H E<span class="dot"></span><span class="dot"></span>A V A L A N C H E</h1>
+		</div>
+		<div class="row">
+			<div class="span6">
+				<div class="padded-sides padded-up-down">
+					<div class="featured">
+						<%= link_to "", @featured, class: "follow" %>
+						<%= content_tag(:iframe, "", :src => @featured_video, :style => "width: 420px; height: 315px;") %>
+					</div>
+				</div>
+			</div>
+			<div class="span6 shadowy" style="margin-top: 18px;">
+				<div class="padded-sides padded-up-down">
+					<%= content_tag :h1, class: "white" do %>
+						<%= @featured.name %>
+					<% end %>
+					<div class="white">
+						<%= simple_format(@featured_text) %><%= link_to "Go to contest &rarr;".html_safe, @featured, class: "white" %>
+					</div>
+				</div>
+				<div class="wrapoff">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="span12">
+		<div class="separator"></div>
+	</div>	
 	<div class="span7">
-		<h1>Featured Challenge</h1>
-
-		<%= content_tag :h3 do %>
-			<%= @featured.name %>
-		<% end %>
-		<div class="featured">
-			<%= link_to "", @featured, class: "follow" %>
-			<%= content_tag(:iframe, "", :src => @featured_video, :style => "width: 540px; height: 405px;") %>
-		</div>
-		<p></p>
-		<h2>Trending Challenges</h2>
-		<div class="trenders">
-			<div class="trending">
-				<%= link_to "", @trending1, class: "follow" %>
-				<%= content_tag(:iframe, "", :src => @trending1_video, :style => "float: left; width: 263px; height: 197px; margin-right: 2px;") %>
-			</div>
-			<div class="trending">
-				<%= link_to "", @trending2, class: "follow" %>
-				<%= content_tag(:iframe, "", :src => @trending2_video, :style => "float: left; width: 263px; height: 197px; margin-left: 2px;") %>
+		<div class="padded-sides padded-up-down">
+			<div class="centered-text">
+				<h1>About Avalanche</h1>
 			</div>
 		</div>
-		
 	</div>
 	<div class="span5">
-		<div class="centered-text">
-			<h2>Join the Avalanche</h2>
-			<p></p>
-		</div>
-		<div class="centered-inputs">
-			
-			<%= form_for @user do |f| %>
-				<p>
-					<%= f.text_field :name, placeholder: "Full name" %>
-				</p>
-				<p>
-					<%= f.text_field :email, placeholder: "Email" %>
-				</p>				
-				<p>
-					<%= f.password_field :password, placeholder: "Password" %>
-				</p>
-				<p>
-					<%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
-				</p>
-				<p class="button"><%= f.submit "Create account" %></p>
-			<% end %>
-		</div>
-		<hr class="white">
-		<div class="centered-text">
-			<h2>About Avalanche</h2>
-		</div>
-		<div class="centered-inputs">
-		<p>Avalanche helps people gain the recognition they deserve.  Challenges are posted, users submit videos showcasing their best efforts to fulfill a challenge's prompt, and socially-driven voting helps to determine the winners. <%= link_to "Read more &raquo;".html_safe, about_path %></p>
+		<div class="padded-up-down">
+			<div class="centered-text">
+				<h1>Sign up</h1>
+				<p></p>
+			</div>
+			<div class="centered-inputs">
+				
+				<%= form_for @user do |f| %>
+					<p>
+						<%= f.text_field :name, placeholder: "Full name" %>
+					</p>
+					<p>
+						<%= f.text_field :email, placeholder: "Email" %>
+					</p>				
+					<p>
+						<%= f.password_field :password, placeholder: "Password" %>
+					</p>
+					<p>
+						<%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
+					</p>
+					<p class="button"><%= f.submit "Create account" %></p>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Avalanche.io</title>
+	<title>Avalanche</title>
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
@@ -9,20 +9,22 @@
 </head>
 <body>
 	<%= render "shared/header" %>
+	<div class="inner shadow"></div>
 	<div class="main">
-		<div class="container">
+		<div class="container">			
 			<div class="row">
-				<div class="span12">
-					<div class="inner">
-						<!-- alert or notices -->
-						<div class="centered-600">
-						<% flash.each do |name, msg| %>
-							<%= content_tag :div, msg, :id => "flash_#{name}", class: "alert alert-info centered-text" %>
-						<% end %>
-						<!-- end alert or notices -->
-						</div>
-						<%= yield %>					
+				<div class="span12" style="margin-top: -15px;">
+					<div class="separator"></div>
+				</div>	
+				<div class="span12">					
+					<!-- alert or notices -->
+					<div class="centered-600">
+					<% flash.each do |name, msg| %>
+						<%= content_tag :div, msg, :id => "flash_#{name}", class: "alert alert-info centered-text" %>
+					<% end %>
+					<!-- end alert or notices -->
 					</div>
+					<%= yield %>					
 				</div>
 			</div>
 		</div>
