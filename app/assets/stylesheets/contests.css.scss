@@ -9,14 +9,13 @@
 
 .contest
 {
-	background: url('snow.png');
-	opacity: 0.95;
 	width: 48%;
 	min-height: 140px;
 	margin: 5px;
 	float: left;
 	position: relative;
 	padding: 15px;
+	background: #FAFAFA;
 }
 .contest:hover
 {
@@ -88,7 +87,7 @@
 	position: relative;
 }
 
-.trending a.follow
+a.follow
 {
 	position: absolute;
 	top: 0; right: 0; left: 0; bottom: 0;

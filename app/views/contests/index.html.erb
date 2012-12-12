@@ -3,13 +3,15 @@
 </div>
 
 <% @contests.each do |contest| %>
-	<%= link_to contest do %>
-		<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
-			<%= content_tag :h3, class: "animated" do %>
-				<%= contest.name %>
-			<% end %>
-			<br><br>
-			<%= content_tag(:iframe, "", :src => embed_video(contest), :class => "shadow", :style => "width: 263px; height: 197px;") %>
+	<%= link_to "", contest, class: "follow" %>
+	<%= content_tag :div, class: "contest animated" do %>
+		<%= content_tag :h3, class: "animated" do %>
+			<%= contest.name %>
 		<% end %>
+		<br><br>
+		<%= content_tag(:iframe, "", :src => embed_video(contest), :class => "shadow", :style => "width: 440px; height: 330px;") %>
+		<br>
+		<hr>
+		<%= contest.desc_preview(100) %>
 	<% end %>
 <% end %>
