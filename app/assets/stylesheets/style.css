@@ -96,6 +96,7 @@ div#header
 	min-height: 300px;
 	text-align: left;
 	color: #666666;
+	background-image: url('snow.png');
 }
 
 iframe
@@ -105,12 +106,12 @@ iframe
 
 div.inner
 {
-	/*opacity: 0.5;*/
+	/*opacity: 0.5;
 	background-image: url('snow.png');
 	top: 0; bottom: 0;
 	width: 940px;
 	z-index: 0;
-	position: fixed;
+	position: fixed;*/
 }
 
 div#footer
@@ -205,10 +206,15 @@ h3
 	padding-top: 0px;
 }
 
+.wrapped
+{
+	height: 280px;
+}
+
 .shadowy .wrapoff
 {
 	position: absolute;
-	height: 273px;
+	height: 316px;
 	width: 10px;
 	left: 460px;
 	top: 6px;

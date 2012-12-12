@@ -37,9 +37,10 @@ $(document).ready(function() {
 
 function bg()
 {
-	
+	/*
 	var left = ($(window).width() - 940) / 2.0;
 	$(".inner").css("left", left + "px");
+	*/
 	
 	var offset = $("#top").height() + $(".main").height() + $("#footer").height() + 25;
 	$("#bottom").css("top", offset + "px");
