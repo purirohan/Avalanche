@@ -13,6 +13,6 @@ production:
   adapter: mysql
   encoding: utf8
   database: app9986827
-  host: instance34127.db.xeround.com:13388
+  host: instance34127.db.xeround.com.:13388
   username: app9986827
   password: RCzOptiD
