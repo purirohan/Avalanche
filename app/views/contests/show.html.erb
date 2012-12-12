@@ -16,7 +16,7 @@
 			<%= link_to "Apply", new_contest_participation_path(@contest), class: "button large" %>
 		<% else %>
 			<br>
-			<%= link_to "Withdraw application", {:controller => "participations", :action => "destroy", :contest_id => @contest.id, :id => @curr_user_submission.id}, method: :delete, confirm: "Are you sure you want to your application to this contest?", class: "button large" %>
+			<%= link_to "Withdraw application", {:controller => "participations", :action => "destroy", :contest_id => @contest.id, :id => @curr_user_submission.id}, method: :delete, confirm: "Are you sure you want to withdraw your application to this contest?", class: "button large" %>
 		<% end %>
 	<% end %>
 	

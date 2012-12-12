@@ -13,6 +13,7 @@ div.navbar
 	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
 	*/
 	background: #FAFAFA;
+	background-image: url('Texture.png');
 }
 
 div.navbar ul.nav 
@@ -92,11 +93,14 @@ ul.nav > li.divider-vertical
 
 .navbar ul.nav > li > a > h3:hover
 {
+	/*
 	-webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
 	-moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
 	box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
 	overflow: hidden;
+	*/
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	
 }
 
 
@@ -122,7 +126,7 @@ div#user-nav
 {
 	z-index: 10;
 	text-shadow: none;
-	margin-top: 23px;
+	margin-top: 24px;
 }
 
 div#user-nav a

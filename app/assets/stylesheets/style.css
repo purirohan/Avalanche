@@ -1,6 +1,7 @@
 html
 { 
 	background: #FAFAFA;
+	background-image: url('Texture.png');
 }
 
 @font-face {
@@ -38,7 +39,23 @@ html
 
 [id*=flash_]
 {
-	margin-bottom: 45px;
+	margin-bottom: 0px;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+}
+
+.error_messages
+{
+	padding: 10px;
+	color: #3A87AD;
+	background-color: #D9EDF7;
+	border: 1px solid #BCE8F1;
+}
+
+.error_messages h2
+{
+	color: #3A87AD;
 }
 
 body
@@ -65,7 +82,7 @@ div#header
 
 .splash
 {
-	background: url("Mountain4.jpg");
+	background: url("bg.jpg");
 	margin-top: 0px;
 	margin-bottom: 0px;
 	
@@ -84,6 +101,7 @@ div#header
 	padding-top: 30px;
 	font-size: 80px;
 	text-shadow: 0px 0px 6px rgba(0,0,0,0.4);
+	color: #FFFFFF;
 }
 
 .main .container
@@ -96,12 +114,16 @@ div#header
 	min-height: 300px;
 	text-align: left;
 	color: #666666;
-	background-image: url('snow.png');
+	/*background-image: url('snow.png');*/
+	background: #FAFAFA;
 }
 
 iframe
 {
 	border: 0;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
 }
 
 div.inner
@@ -195,15 +217,26 @@ h3
 
 .shadowy
 {
-	opacity: 0.7;
+	opacity: 0.8;
 	background: #000000;
 	position: relative;
+}
+
+.shadowy a.shadowlink:hover
+{
+	text-decoration: none;
 }
 
 .shadowy h1
 {
 	font-size: 42px;
 	padding-top: 0px;
+	
+}
+
+.shadowy h1:hover
+{
+
 }
 
 .wrapped

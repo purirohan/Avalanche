@@ -30,8 +30,9 @@ $(document).ready(function() {
 	
 	$(".alert").slideDown();
 	$("[id$='flash_']").slideDown();
+	$("div.error_messages").slideDown();
 	
-	delay(function() { $(".alert").slideUp(); $("[id$='flash_']").slideUp(); }, 6000);
+	delay(function() { $(".alert").slideUp(); $("[id$='flash_']").slideUp(); $("div.error_messages").slideUp(); }, 6000);
 		
 });
 

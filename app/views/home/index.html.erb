@@ -1,21 +1,22 @@
 <div class="row">
 	<div class="span12 splash">
 		<div class="centered-text">
-			<h1 class="white">J O I N<span class="dot"></span><span class="dot"></span>T H E<span class="dot"></span><span class="dot"></span>A V A L A N C H E</h1>
+			<h1>Watch, judge, and vote.</h1>
 		</div>
 		<div class="row">
 			<div class="span6">
 				<div class="padded-sides padded-up-down">
 					<div class="featured">
-						<%= link_to "", @featured, class: "follow" %>
 						<%= content_tag(:iframe, "", :src => @featured_video, :style => "width: 420px; height: 315px;") %>
 					</div>
 				</div>
 			</div>
 			<div class="span6 shadowy" style="margin-top: 18px;">
 				<div class="padded-sides padded-up-down wrapped">
-					<%= content_tag :h1, class: "white" do %>
-						<%= @featured.name %>
+					<%= link_to @featured, class: "shadowlink" do %>
+						<%= content_tag :h1, class: "white" do %>
+							<%= @featured.name %>
+						<% end %>
 					<% end %>
 					<div class="white">
 						<%= simple_format(@featured_text) %><%= link_to "Go to contest &rarr;".html_safe, @featured, class: "white" %>
