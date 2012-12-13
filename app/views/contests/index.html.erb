@@ -1,17 +1,20 @@
-<div class="centered-text">
-	<h1>Browse Contests</h1>
-</div>
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="centered-text">
+				<h1>Browse Contests</h1>
+			</div>
 
-<% @contests.each do |contest| %>
-	<%= link_to "", contest, class: "follow" %>
-	<%= content_tag :div, class: "contest animated" do %>
-		<%= content_tag :h3, class: "animated" do %>
-			<%= contest.name %>
-		<% end %>
-		<br><br>
-		<%= content_tag(:iframe, "", :src => embed_video(contest), :class => "shadow", :style => "width: 440px; height: 330px;") %>
-		<br>
-		<hr>
-		<%= contest.desc_preview(100) %>
-	<% end %>
-<% end %>
+			<% @contests.each do |contest| %>
+				<%= link_to "", contest, class: "follow" %>
+				<%= content_tag :div, class: "contest animated" do %>
+					<%= content_tag :h3, class: "animated" do %>
+						<%= contest.name %>
+					<% end %>
+					<br><br>
+					<%= content_tag(:iframe, "", :src => embed_video(contest), :class => "shadow", :style => "width: 440px; height: 330px;") %>
+					<br>
+					<hr>
+					<%= contest.desc_preview(100) %>
+				<% end %>
+			<% end %>

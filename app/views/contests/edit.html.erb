@@ -1,21 +1,24 @@
-<div id="back"><%= link_to "&larr; Back".html_safe, @contest %></div>
-<div class="centered-text">
-	<h1>Edit '<%= @contest.name %>'</h1>
-	<hr>
-</div>
-<div class="centered-600">
-	<%= form_for(@contest) do |form| %>
-		<%= form.label :name, "Name of your challenge" %>
-		<%= form.text_field :name, class: "span4" %>
-		<%= form.label :category, "What kind of challenge is this?" %>
-		<%= form.text_field :category %>
-		<%= form.label :ending, "What day should your challenge end?" %>
-		<%= form.text_field :ending, type: "date" %>
-		<%= form.label :desc, "What should applicants know about your contest?" %>
-		<%= form.text_area :desc, class: "span6" %>
-		<%= form.label :video, "Provide the URL to an optional video prompt (youtube only, please):" %>
-		<%= form.text_field :video, class: "span6" %>
-		<br><br>
-		<%= form.submit "Save changes" %> <span class="buttontext">or <%= link_to "cancel", @contest %> </span>
-	<% end %>
-</div>
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div id="back"><%= link_to "&larr; Back".html_safe, @contest %></div>
+			<div class="centered-text">
+				<h1>Edit '<%= @contest.name %>'</h1>
+				<hr>
+			</div>
+			<div class="centered-600">
+				<%= form_for(@contest) do |form| %>
+					<%= form.label :name, "Name of your challenge" %>
+					<%= form.text_field :name, class: "span4" %>
+					<%= form.label :category, "What kind of challenge is this?" %>
+					<%= form.text_field :category %>
+					<%= form.label :ending, "What day should your challenge end?" %>
+					<%= form.text_field :ending, type: "date" %>
+					<%= form.label :desc, "What should applicants know about your contest?" %>
+					<%= form.text_area :desc, class: "span6" %>
+					<%= form.label :video, "Provide the URL to an optional video prompt (youtube only, please):" %>
+					<%= form.text_field :video, class: "span6" %>
+					<br><br>
+					<%= form.submit "Save changes" %> <span class="buttontext">or <%= link_to "cancel", @contest %> </span>
+				<% end %>
+			</div>

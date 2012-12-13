@@ -1,49 +1,49 @@
 <div id="header">	
 	<div id="top" class="navbar">
+		<div id="navback"></div>
 		<div class="container" style="width: 940px; margin-left: auto; margin-right: auto;">
 			<div class="navbar-inner">				
 				<div class="nav-collapse">
-					<ul class="nav">	
+					<ul class="nav pull-left">	
 						<li style="margin-right: 30px;">
 							<%= link_to root_path do %>
 								<%= content_tag :div, id: "header-logo" do %>
 									<%= content_tag :h2 do %>
-										<%= image_tag "logo.png", :size => "350x70" %>
+										<%= image_tag "Logo_Final.png", :size => "96x86" %>
 									<% end %>
 								<% end %>
 							<% end %>
 						</li>
-						<li class="divider-vertical"></li>
+					</ul>
+					<ul id="rightnav" class="nav pull-right">
 						<li>
 							<%= link_to contests_path do %>
-								<%= content_tag :h3, class: "animated-fast" do %>
+								<%= content_tag :h2, class: "animated-fast" do %>
 									Browse
 								<% end %>
 							<% end %>
 						</li>
 						<li>
 							<%= link_to contests_path do %>
-								<%= content_tag :h3, class: "animated-fast" do %>
+								<%= content_tag :h2, class: "animated-fast" do %>
 									Vote
 								<% end %>
 							<% end %>
 						</li>
 						<li>
 							<%= link_to contests_path do %>
-								<%= content_tag :h3, class: "animated-fast" do %>
+								<%= content_tag :h2, class: "animated-fast" do %>
 									Submit a prompt
 								<% end %>
 							<% end %>
 						</li>
-					</ul>
-					<ul class="nav pull-right">
 						<li>
 							<!-- sign in or log in or log out -->
 							<div id="user-nav">
 								<% if current_user %>
-									<%= link_to current_user.name, current_user %> <%= link_to "&times;".html_safe, log_out_path %>
+									<%= link_to current_user.name, current_user, class: "animated-fast" %> <%= link_to "&times;".html_safe, log_out_path %>
 								<% else %>
-									<%= link_to "Sign up", sign_up_path %> or <%= link_to "sign in", log_in_path %>
+									<h2><%= link_to "Sign up", sign_up_path, class: "animated-fast" %>/<%= link_to "sign in", log_in_path %></h2>
 								<% end %>
 							</div>
 							<!-- end sign in or log in or log out -->

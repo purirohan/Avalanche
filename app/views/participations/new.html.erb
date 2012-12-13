@@ -1,13 +1,16 @@
-<div id="back"><%= link_to "&larr; Back".html_safe, @contest %></div>
-<div class="centered-text">
-	<h1>Apply to '<%= @contest.name %>'</h1>
-	<hr>
-</div>
-<div class="centered-600">
-	<%= form_for([@contest, @participation]) do |form| %>
-		<%= form.label :video, "Video URL (youtube only, please):" %>
-		<%= form.text_field :video, class: "span6" %>
-		<br><br>
-		<%= form.submit "Submit application" %> <span class="buttontext">or <%= link_to "cancel", @contest %> </span>
-	<% end %>
-</div>
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div id="back"><%= link_to "&larr; Back".html_safe, @contest %></div>
+			<div class="centered-text">
+				<h1>Apply to '<%= @contest.name %>'</h1>
+				<hr>
+			</div>
+			<div class="centered-600">
+				<%= form_for([@contest, @participation]) do |form| %>
+					<%= form.label :video, "Video URL (youtube only, please):" %>
+					<%= form.text_field :video, class: "span6" %>
+					<br><br>
+					<%= form.submit "Submit application" %> <span class="buttontext">or <%= link_to "cancel", @contest %> </span>
+				<% end %>
+			</div>
