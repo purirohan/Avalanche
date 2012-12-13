@@ -41,7 +41,7 @@
 							<!-- sign in or log in or log out -->
 							<div id="user-nav">
 								<% if current_user %>
-									<%= link_to current_user.name, current_user %> <%= link_to "&rarr;".html_safe, log_out_path %>
+									<%= link_to current_user.name, current_user %> <%= link_to "&times;".html_safe, log_out_path %>
 								<% else %>
 									<%= link_to "Sign up", sign_up_path %> or <%= link_to "sign in", log_in_path %>
 								<% end %>

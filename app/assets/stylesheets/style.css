@@ -111,6 +111,22 @@ div#header
 	color: #FFFFFF;
 }
 
+.splash .shadowy a
+{
+	font-weight: 400;
+	color: #54C7ED;
+	text-decoration: none;
+	/*text-shadow: 1px 1px 1px rgba(0,0,0,0.15);*/
+}
+
+.splash .shadowy a:hover
+{
+	font-weight: 400;
+	color: #54C7ED;
+	text-decoration: underline;
+	
+}
+
 .main .container
 {
 	width: 940px;
@@ -545,7 +561,7 @@ a, .btn, input[type="submit"]
 a:not(.btn)
 {
 	font-weight: 400;
-	color: #54C7ED;
+	color: #555555;
 	text-decoration: none;
 	/*text-shadow: 1px 1px 1px rgba(0,0,0,0.15);*/
 }
@@ -553,7 +569,7 @@ a:not(.btn)
 a:hover:not(.btn)
 {
 	font-weight: 400;
-	color: #54C7ED;
+	color: #555555;
 	text-decoration: underline;
 	
 }
