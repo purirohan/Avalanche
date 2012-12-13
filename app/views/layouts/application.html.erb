@@ -9,17 +9,11 @@
 </head>
 <body>
 	<%= render "shared/header" %>
-	<div class="main">
-		<div class="container" style="min-height: 0; padding: 0px;">			
-			<div class="row">
-				<div class="span12">
-					<!-- alert or notices -->
-					<% flash.each do |name, msg| %>
-						<%= content_tag :div, msg, :id => "flash_#{name}", class: "alert alert-info centered-text" %>
-					<% end %>
-				</div>
-			</div>
-		</div>
+	<div class="main">		
+		<!-- alert or notices -->
+		<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, :id => "flash_#{name}", class: "alert alert-info centered-text" %>
+		<% end %>
 		<!-- end alert or notices -->
 		<%= yield %>					
 	</div>

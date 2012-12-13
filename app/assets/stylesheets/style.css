@@ -82,7 +82,7 @@ div#header
 .splash
 {	
 	position: relative;
-	
+	margin-top: 10px;
 }
 
 .splash h1
@@ -98,9 +98,11 @@ div#header
 .main
 {
 	border-top: 12px solid #7893c2;
-	background: url('bg.jpg');
-	background-repeat: no-repeat;
-	padding-top: 30px;
+	background: url('bg.jpg') no-repeat center center; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	padding-bottom: 30px;
 	
 }
@@ -126,6 +128,7 @@ iframe
 .inner
 {
 	background: #FAFAFA;
+	margin-top: 30px;
 	padding-top: 30px;
 	padding-bottom: 30px;
 	margin-bottom: 30px;

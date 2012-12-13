@@ -6,87 +6,89 @@
 					<h1>Welcome, <%= current_user.name %></h1>
 					<hr>
 				</div>
-				<div class="centered-600">
+				<div class="padded-sides">
 					<h2>Challenges you've created</h2>
-					<div class="contests">
-						<% @created.each do |contest| %>
-							<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
-								<%= link_to "", contest, class: "follow" %>
-								<%= link_to [contest], method: :delete, confirm: "Are you sure you want to delete this challenge?" do %>
-									<%= content_tag :button, class: "close animated", type: "button" do %>
-										&times;
-									<% end %>
-								<% end %>
-								<%= content_tag :h3, class: "animated" do %>
-									<%= contest.name %>
-								<% end %>
+				</div>
+				<div class="contests">
+					<% @created.each do |contest| %>
+						<div class="contest animated">
+							<%= link_to "", contest, class: "follow" %>
+							<%= link_to [contest], method: :delete, confirm: "Are you sure you want to delete this challenge?" do %>
+								<button class="close animated" type="button">&times;</button>
 							<% end %>
-						<% end %>
-						<%= link_to new_contest_path do %>
-							<%= content_tag :div, id: "new-contest", class: "contest animated rounded inner-shadow" do %>
-								<%= content_tag :h3, class: "animated" do %>
-									new challenge
-								<% end %>
-								<div class="centered-text">
-									<%= image_tag "logo_img.png", :size => "60x60" %>
-								</div>
-							<% end %>
-						<% end %>
-					</div>
-					<hr>
+							<h3>
+								<%= contest.name %>
+							</h3>
+							<br>
+							<%= content_tag(:iframe, "", :src => embed_video(contest), :class => "shadow") %>
+						</div>
+					<% end %>
+					<%= link_to new_contest_path do %>
+						<div id="new-contest" class="contest animated">
+							<h3 class="animated">
+								new challenge
+							</h3>
+							<div class="centered-text">
+								<br>
+								<%= image_tag "logo_alone.png" %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+				<hr>
+				<div class="padded-sides">
 					<h2 style="margin-top: 15px;">Challenges you're participating in</h2>
-					<div class="contests">
-						<% @participating.each do |contest| %>
-							<%= link_to contest do %>
-								<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
-									<%= content_tag :h3, class: "animated" do %>
-										<%= contest.name %>
-									<% end %>
-								<% end %>
-							<% end %>
+				</div>
+				<div class="contests">
+					<% @participating.each do |contest| %>
+						<%= link_to contest do %>
+							<div class="contest animated">
+								<h3 class="animated"><%= contest.name %></h3>
+								<br>
+								<%= content_tag(:iframe, "", :src => embed_video(contest), :class => "shadow") %>
+							</div>
 						<% end %>
-						<%= link_to contests_path do %>
-							<%= content_tag :div, id: "new-contest", class: "contest animated rounded inner-shadow" do %>
-								<%= content_tag :h3, class: "animated" do %>
-									find challenges
-								<% end %>
-								<div class="centered-text">
-									<%= image_tag "logo_img.png", :size => "60x60" %>
-								</div>
-							<% end %>
-						<% end %>
-					</div>
+					<% end %>
+					<%= link_to contests_path do %>
+						<div id="new-contest" class="contest animated">
+							<h3>find challenges</h3>
+							<div class="centered-text">
+								<br>
+								<%= image_tag "logo_alone.png" %>
+							</div>
+						</div>
+					<% end %>
 				</div>
 			<% else %>
 				<div class="centered-text">
 					<h1><%= @user.name %></h1>
 					<hr>
 				</div>
-				<div class="centered-600">
+				<div class="padded-sides">
 					<h2>Challenges <%= @user.name %> has created:</h2>
-					<div class="contests">
-						<% @created.each do |contest| %>
-							<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
-								<%= link_to "", contest, class: "follow" %>
-								<%= content_tag :h3, class: "animated" do %>
-									<%= contest.name %>
-								<% end %>
-							<% end %>
-						<% end %>
-					</div>
-					<hr>
+				</div>
+				<div class="contests">
+					<% @created.each do |contest| %>
+						<div class="contest animated">
+							<%= link_to "", contest, class: "follow" %>
+							<h3 class="animated"><%= contest.name %></h3>
+							<br>
+							<%= content_tag(:iframe, "", :src => embed_video(contest), :class => "shadow") %>
+						</div>
+					<% end %>
+				</div>
+				<hr>
+				<div class="padded-sides">
 					<h2 style="margin-top: 15px;">Challenges <%= @user.name %> is participating in:</h2>
-					<div class="contests">
-						<% @participating.each do |contest| %>
-							<%= link_to contest do %>
-								<%= content_tag :div, class: "contest animated rounded inner-shadow" do %>
-									<%= content_tag :h3, class: "animated" do %>
-										<%= contest.name %>
-									<% end %>
-								<% end %>
-							<% end %>
+				</div>
+				<div class="contests">
+					<% @participating.each do |contest| %>
+						<%= link_to contest do %>
+							<div class="contest animated">
+								<h3 class="animated"><%= contest.name %></h3>
+							</div>
 						<% end %>
-					</div>
+					<% end %>
 				</div>
 			<% end %>
 		</div>
