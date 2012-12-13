@@ -328,6 +328,12 @@ h3
 	height: 93px;
 }
 
+.climbers a:not(.follow)
+{
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
 span.dot
 {
 	margin-left: 10px;

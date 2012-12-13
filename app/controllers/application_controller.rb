@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 	@current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
-	def embed_video(contest)
-		"http://www.youtube.com/embed/" + contest.video.split("v=")[1].split("&")[0]
+	def embed_video(videothing)
+		"http://www.youtube.com/embed/" + videothing.video.split("v=")[1].split("&")[0]
 	end
 end

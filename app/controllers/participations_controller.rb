@@ -1,14 +1,15 @@
 class ParticipationsController < ApplicationController
 
 	def new
-		if !current_user
-			redirect_to root_path
-		end
 		
 		@contest = Contest.find(params[:contest_id])
 		
+		if !current_user
+			redirect_to log_in_path
+		end
+		
 		# can't apply to your own contest!
-		if current_user.id == @contest.user_id
+		if @contest.contest_owner? == true
 			redirect_to @contest
 		end
 		
@@ -34,9 +35,6 @@ class ParticipationsController < ApplicationController
 	
 	def show 
 		@contest = Contest.find(params[:contest_id])
-		#if @contest.user_id != current_user #only for the creator of the contest to view
-		#	redirect_to contest_rate_index_path(@contest)
-		#end
 		@participation = Participation.find(params[:id])
 		@submitter = User.find(@participation.user_id).name
 		@video = embed_video(@participation)

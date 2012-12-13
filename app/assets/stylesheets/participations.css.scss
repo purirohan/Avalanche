@@ -18,6 +18,14 @@
 	color: #555555;
 }
 
+.submission:hover
+{
+	-webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.25);
+	box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.25);
+	overflow: hidden;	
+}
+
 .submission iframe
 {
 	border: 1px solid #DDDDDD;

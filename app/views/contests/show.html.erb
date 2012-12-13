@@ -1,25 +1,12 @@
 <div class="container inner shadow">
 	<div class="row">
-		<div class="span12">
-			<% if @isOwner %>
-				<div id="back"><%= link_to "&larr; Back".html_safe, user_path(current_user) %></div>
-			<% else %>
-				<div id="back"><%= link_to "&larr; Back".html_safe, contests_path %></div>
-			<% end %>
-			<% if @isOwner %>
+		<div class="span12">			
+			<div id="back"><%= link_to "&larr; Back".html_safe, contests_path %></div>
+			<% if @is_owner %>
 				<div id="edit"><%= link_to "Edit &rarr;".html_safe, edit_contest_path(@contest) %></div>
 			<% end %>
 			<div class="centered-text">
 				<h1><%= @contest.name %></h1>
-				<% if !@isOwner %>
-					<% if !@has_submitted %>
-						<br>
-						<%= link_to "Apply", new_contest_participation_path(@contest), class: "button large" %>
-					<% else %>
-						<br>
-						<%= link_to "Withdraw application", {:controller => "participations", :action => "destroy", :contest_id => @contest.id, :id => @curr_user_submission.id}, method: :delete, confirm: "Are you sure you want to withdraw your application to this contest?", class: "button large" %>
-					<% end %>
-				<% end %>	
 				<hr>
 			</div>
 			<div class="row">
@@ -27,6 +14,15 @@
 					<div class="padded-sides">
 						<h2>By <%= @owner %></h2>
 						<%= simple_format(@contest.desc) %>
+						<% if !@is_owner %>
+							<% if !@has_submitted %>
+								<br>
+								<%= link_to "Apply", new_contest_participation_path(@contest), class: "button" %>
+							<% else %>
+								<br>
+								<%= link_to "Withdraw application", {:controller => "participations", :action => "destroy", :contest_id => @contest.id, :id => @curr_user_submission.id}, method: :delete, confirm: "Are you sure you want to withdraw your application to this contest?", class: "button" %>
+							<% end %>
+						<% end %>
 					</div>
 				</div>
 				<div class="span6">
@@ -35,6 +31,7 @@
 					</div>
 				</div>
 			</div>
+			<hr>
 			<div class="row">
 				<div class="span12">
 					<div class="padded-sides">
@@ -43,7 +40,7 @@
 							<%= content_tag :div, class: "submission animated" do %>
 								<div><%= submission.submitter %><span class="dot">&middot;</span><%= submission.score %> point(s)</div>
 								<%= link_to "", [@contest, submission], class: "follow" %>
-								<% if current_user.id == submission.user_id %>
+								<% if current_user != nil && current_user.id == submission.user_id %>
 									<%= link_to [@contest, submission], method: :delete, confirm: "Are you sure you want to your application to this contest?" do %>
 										<%= content_tag :button, class: "close animated", type: "button" do %>
 											&times;

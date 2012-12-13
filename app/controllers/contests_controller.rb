@@ -10,7 +10,7 @@ class ContestsController < ApplicationController
 	
 	def create
 		if !current_user
-			redirect_to root_path
+			redirect_to log_in_path
 		end
 		contest = Contest.new(params[:contest])
 		contest.user_id = current_user.id
@@ -25,34 +25,30 @@ class ContestsController < ApplicationController
 	end
 	
 	def show
-		if !current_user
-			redirect_to root_path
-		end
 		@contest = Contest.find(params[:id])
-		@isOwner = @contest.contest_owner?
-		@has_submitted = Participation.submitted?(params[:id])
+		@is_owner = @contest.contest_owner?
+		@has_submitted = @contest.submitted?
 		if @has_submitted
 			@curr_user_submission = Participation.where("contest_id = ? AND user_id = ?", params[:id], current_user.id)[0]
 		end
 		@owner = User.find(@contest.user_id).name
 		@video = embed_video(@contest)
 		
-		@submissions = @contest.submissions(params[:id])
+		@submissions = @contest.submissions
 		
 	end
 	
 	def edit
 		@contest = Contest.find(params[:id])
-		# make sure the owner is the only one accessing this puppy.
-		if !contest.contest_owner?
-			redirect_to root_path
+		if @contest.contest_owner? == false
+			redirect_to @contest
 		end
 	end
 	
 	def update
 		contest = Contest.find(params[:id])
-		if !contest.contest_owner?
-			redirect_to root_path
+		if contest.contest_owner? == false
+			redirect_to contest
 		end
 		contest.update_attributes(params[:contest]) 
 		redirect_to contest
@@ -60,8 +56,8 @@ class ContestsController < ApplicationController
 	
 	def destroy
 		contest = Contest.find(params[:id])
-		if !contest.contest_owner?
-			redirect_to root_path
+		if contest.contest_owner? == false
+			redirect_to contest
 		end
 		contest.destroy
 		redirect_to current_user

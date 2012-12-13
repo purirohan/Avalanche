@@ -29,4 +29,12 @@ class User < ActiveRecord::Base
 		end
 	end
 	
+	def created_contests
+		self.contests.where("donor = ?", true)
+	end
+	
+	def participating_contests
+		contests.where("donor = ?", false)
+	end
+	
 end

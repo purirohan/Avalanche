@@ -5,18 +5,15 @@
 				<h1>Browse Contests</h1>
 			</div>
 
-			<% @contests.each do |contest| %>
-				<%= link_to "", contest, class: "follow" %>
-				<%= content_tag :div, class: "contest animated" do %>
-					<%= content_tag :h3, class: "animated" do %>
+			<% @contests.each do |contest| %>				
+				<div class="contest animated">
+					<%= link_to "", contest, class: "follow" %>
+					<h3>
 						<%= contest.name %>
-					<% end %>
-					<br><br>
-					<%= content_tag(:iframe, "", :src => embed_video(contest), :class => "shadow", :style => "width: 440px; height: 330px;") %>
+					</h3>
 					<br>
-					<hr>
-					<%= contest.desc_preview(100) %>
-				<% end %>
+					<%= content_tag(:iframe, "", :src => embed_video(contest), :class => "shadow") %>
+				</div>
 			<% end %>
 		</div>
 	</div>
