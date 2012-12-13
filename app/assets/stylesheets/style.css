@@ -87,7 +87,7 @@ div#header
 
 .splash h1
 {
-	font-size: 60px;
+	font-size: 64px;
 	color: #666666;
 	text-shadow: none;
 	margin-bottom: 0px;
@@ -98,7 +98,7 @@ div#header
 .main
 {
 	border-top: 12px solid #7893c2;
-	background: url('CentralImage.jpg');
+	background: url('bg.jpg');
 	background-repeat: no-repeat;
 	padding-top: 30px;
 	padding-bottom: 30px;
@@ -123,14 +123,17 @@ iframe
     box-shadow: 0 0 15px rgba(0,0,0,0.6);
 }
 
-div.inner
+.inner
 {
-	/*opacity: 0.5;
-	background-image: url('snow.png');
-	top: 0; bottom: 0;
-	width: 940px;
-	z-index: 0;
-	position: fixed;*/
+	background: #FAFAFA;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+}
+
+.inner h1
+{
+	color: #555555;
 }
 
 div.cream

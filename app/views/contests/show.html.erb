@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container inner shadow">
 	<div class="row">
 		<div class="span12">
 			<% if @isOwner %>
@@ -29,8 +29,8 @@
 						<%= simple_format(@contest.desc) %>
 					</div>
 				</div>
-				<div class="span6" style="text-align: right;">
-					<div class="padded-sides">
+				<div class="span6">
+					<div class="padded-sides centered-text">
 						<%= content_tag(:iframe, "", :src => @video, :style => "width: 380px; height: 285px;") %>
 					</div>
 				</div>
@@ -56,3 +56,6 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>

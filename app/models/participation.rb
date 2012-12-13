@@ -11,4 +11,8 @@ class Participation < ActiveRecord::Base
 		User.find(self.user_id).name
 	end
 	
+	def submitted?(contest_id)
+		Participation.where("contest_id = ? AND user_id = ?", contest_id, current_user.id).blank? == false
+	end
+	
 end

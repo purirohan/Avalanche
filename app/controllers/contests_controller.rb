@@ -29,29 +29,29 @@ class ContestsController < ApplicationController
 			redirect_to root_path
 		end
 		@contest = Contest.find(params[:id])
-		@isOwner = current_user != nil && current_user.id == @contest.user_id
-		@has_submitted = Participation.where("contest_id = ? AND user_id = ?", params[:id], current_user.id).blank? == false
+		@isOwner = @contest.contest_owner?
+		@has_submitted = Participation.submitted?(params[:id])
 		if @has_submitted
 			@curr_user_submission = Participation.where("contest_id = ? AND user_id = ?", params[:id], current_user.id)[0]
 		end
 		@owner = User.find(@contest.user_id).name
 		@video = embed_video(@contest)
 		
-		@submissions = Participation.where("contest_id = ? AND user_id != ?", params[:id], @contest.user_id)
+		@submissions = @contest.submissions(params[:id])
 		
 	end
 	
 	def edit
 		@contest = Contest.find(params[:id])
 		# make sure the owner is the only one accessing this puppy.
-		if !current_user || current_user.id != @contest.user_id
+		if !contest.contest_owner?
 			redirect_to root_path
 		end
 	end
 	
 	def update
 		contest = Contest.find(params[:id])
-		if !current_user || current_user.id != contest.user_id
+		if !contest.contest_owner?
 			redirect_to root_path
 		end
 		contest.update_attributes(params[:contest]) 
@@ -60,7 +60,7 @@ class ContestsController < ApplicationController
 	
 	def destroy
 		contest = Contest.find(params[:id])
-		if !current_user || current_user.id != contest.user_id
+		if !contest.contest_owner?
 			redirect_to root_path
 		end
 		contest.destroy

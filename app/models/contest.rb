@@ -11,4 +11,13 @@ class Contest < ActiveRecord::Base
 			self.desc[0, len - 1] + "... "
 		end
 	end
+	
+	def contest_owner?
+		!current_user || current_user.id != self.user_id
+	end
+	
+	def submissions
+		Participation.where("contest_id = ? AND user_id != ?", self, self.user_id)
+	end
+	
 end
