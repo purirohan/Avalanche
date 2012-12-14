@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="span12">			
 			<div id="back"><%= link_to "&larr; Back".html_safe, contests_path %></div>
-			<% if @is_owner %>
+			<% if @is_owner == true %>
 				<div id="edit"><%= link_to "Edit &rarr;".html_safe, edit_contest_path(@contest) %></div>
 			<% end %>
 			<div class="centered-text">
@@ -14,8 +14,8 @@
 					<div class="padded-sides">
 						<h2>By <%= @owner %></h2>
 						<%= simple_format(@contest.desc) %>
-						<% if !@is_owner %>
-							<% if !@has_submitted %>
+						<% if @is_owner == false %>
+							<% if @has_submitted == false %>
 								<br>
 								<%= link_to "Apply", new_contest_participation_path(@contest), class: "button" %>
 							<% else %>

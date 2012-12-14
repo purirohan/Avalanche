@@ -12,11 +12,11 @@ class Contest < ActiveRecord::Base
 		end
 	end
 	
-	def contest_owner?
-		if @current_user == nil
+	def contest_owner?(user)
+		if user == nil
 			false
 		else
-			@current_user.id == self.user_id
+			user.id == self.user_id
 		end
 	end
 	
@@ -24,11 +24,11 @@ class Contest < ActiveRecord::Base
 		Participation.where("contest_id = ? AND user_id != ?", self, self.user_id)
 	end
 	
-	def submitted?
-		if !@current_user
+	def submitted?(user)
+		if user == nil
 			false
 		else
-			Participation.where("contest_id = ? AND user_id = ?", self, @current_user.id).blank? == false
+			Participation.where("contest_id = ? AND user_id = ?", self, user.id).blank? == false
 		end
 	end
 	

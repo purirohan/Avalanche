@@ -26,8 +26,8 @@ class ContestsController < ApplicationController
 	
 	def show
 		@contest = Contest.find(params[:id])
-		@is_owner = @contest.contest_owner?
-		@has_submitted = @contest.submitted?
+		@is_owner = @contest.contest_owner?(current_user)
+		@has_submitted = @contest.submitted?(current_user)
 		if @has_submitted
 			@curr_user_submission = Participation.where("contest_id = ? AND user_id = ?", params[:id], current_user.id)[0]
 		end
@@ -40,14 +40,14 @@ class ContestsController < ApplicationController
 	
 	def edit
 		@contest = Contest.find(params[:id])
-		if @contest.contest_owner? == false
+		if @contest.contest_owner?(current_user) == false
 			redirect_to @contest
 		end
 	end
 	
 	def update
 		contest = Contest.find(params[:id])
-		if contest.contest_owner? == false
+		if contest.contest_owner?(current_user) == false
 			redirect_to contest
 		end
 		contest.update_attributes(params[:contest]) 
@@ -56,7 +56,7 @@ class ContestsController < ApplicationController
 	
 	def destroy
 		contest = Contest.find(params[:id])
-		if contest.contest_owner? == false
+		if contest.contest_owner?(current_user) == false
 			redirect_to contest
 		end
 		contest.destroy
