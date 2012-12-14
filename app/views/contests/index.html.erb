@@ -9,7 +9,11 @@
 				<div class="contest animated">
 					<%= link_to "", contest, class: "follow" %>
 					<h3>
-						<%= contest.name %>
+						<% if !contest %>
+							Error!
+						<% else %>
+							<%= contest.name %>
+						<% end %>
 					</h3>
 					<br>
 					<%= content_tag(:iframe, "", :src => embed_video(contest), :class => "shadow") %>

@@ -21,6 +21,9 @@ class ApplicationController < ActionController::Base
   end
   
 	def embed_video(videothing)
+		if !videothing
+			"http://www.youtube.com/embed/oHg5SJYRHA0"
+		end
 		"http://www.youtube.com/embed/" + videothing.video.split("v=")[1].split("&")[0]
 	end
 end
