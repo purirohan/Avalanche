@@ -11,8 +11,7 @@ div.navbar
 	background-image: linear-gradient(to bottom, #F1F1F1, #E1E1E1);
 	background-repeat: repeat-x;
 	*/
-	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#E1E1E1E1', endColorstr='#E1E1E1E1', GradientType=0);
-	
+	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#E1E1E1E1', endColorstr='#E1E1E1E1', GradientType=0);	
 	position: relative;
 }
 
@@ -44,7 +43,7 @@ div.navbar-inner
 	background: rgba(0,0,0,0);
 	background-image: rgba(0,0,0,0);
 	background-color: rgba(0,0,0,0);
-	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#E1E1E1E1', endColorstr='#E1E1E1E1', GradientType=0);
 
 	overflow: hidden;
 	

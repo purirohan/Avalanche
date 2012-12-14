@@ -12,7 +12,7 @@
 			<div class="row">
 				<div class="span3 centered-text" style="margin-top: 120px;">
 					<%= link_to contest_ratings_path(@contest, :video => @participation.id), method: "post", title: "Upvote this submission" do %>
-						<% image_tag "logo_alone.png" %>
+						<div class="upvote animated-fast"></div>
 					<% end %>
 				</div>
 				<div class="span6 centered-text">
@@ -20,7 +20,7 @@
 				</div>
 				<div class="span3 centered-text" style="margin-top: 145px;">
 					<%= link_to contest_ratings_path(@contest), title: "Next submission" do %>
-						<% image_tag "next.png" %>
+						<div class="next animated-fast"></div>
 					<% end %>
 				</div>
 			</div>

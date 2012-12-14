@@ -1080,5 +1080,40 @@ a.button:hover, input[type="submit"]:hover
 a.button:active , input[type="submit"]:active 
 {
 	text-decoration: none;
-	top: -2px; outline: none;
+	top: -4px; outline: none;
 }
+
+div.team div.row
+{
+	margin-bottom: 30px;
+}
+
+div.team h2
+{
+	margin-bottom: 5px;
+}
+
+div.team span
+{
+	color: #AAAAAA;	
+	font-size: 12px;
+}
+
+div.team p
+{
+	margin-top: 10px;
+}
+
+div.team-member
+{
+	width: 295px;
+	height: 210px;
+	background-size: 295px 210px;
+	border: 5px solid white;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#alex { background-image: url('alex.jpg'); }
+div#rohan { background-image: url('rohan.jpg'); }
+div#cris { background-image: url('cris.jpg'); }

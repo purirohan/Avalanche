@@ -56,3 +56,36 @@
 {
 	position: relative;
 }
+
+.upvote
+{
+	background-image: url('upvote.png');
+	background-size: 86px 100px;
+	background-repeat: no-repeat;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+	height: 100px;
+}
+
+.upvote:hover
+{
+	background-image: url('upvote_down.png');
+}
+
+.next
+{
+	background-image: url('next.png');
+	background-size: 100px 86px;
+	background-repeat: no-repeat;
+	margin-top: -15px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+	height: 100px;
+}
+
+.next:hover
+{
+	background-image: url('next_down.png');
+}
