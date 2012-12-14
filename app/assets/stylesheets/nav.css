@@ -11,9 +11,7 @@ div.navbar
 	background-image: linear-gradient(to bottom, #F1F1F1, #E1E1E1);
 	background-repeat: repeat-x;
 	*/
-	border: 1px solid #D4D4D4;
 	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#E1E1E1E1', endColorstr='#E1E1E1E1', GradientType=0);
-	border-bottom: 12px solid #666666;
 	
 	position: relative;
 }

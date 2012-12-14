@@ -2,19 +2,32 @@
 	<div class="row">
 		<div class="span12">
 			<div id="back"><%= link_to "&larr; Back".html_safe, @contest %></div>
-			<div class="centered-text">
-				<h1><%= @contest.name %></h1>
-				<h2><%= @submitter %>'s submission</h2>
-				<hr>
-				<%= link_to contest_ratings_path(@contest, :video => @participation.id), method: "post", title: "Upvote this submission" do %>
-					<% image_tag "logo_alone.png" %>
-				<% end %>
-				<span class="dot"></span><span class="dot"></span><span class="dot"></span>
-				<%= link_to contest_ratings_path(@contest), title: "Next submission" do %>
-					<% image_tag "next.png" %>
-				<% end %>
-				<br><br><br>
-				<%= content_tag(:iframe, "", :src => @video, :style => "width: 540px; height: 405px;") %>
+			<div class="row">
+				<div class="span12">
+					<div class="centered-text">
+						<h1><%= @contest.name %></h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span3 centered-text" style="margin-top: 120px;">
+					<%= link_to contest_ratings_path(@contest, :video => @participation.id), method: "post", title: "Upvote this submission" do %>
+						<% image_tag "logo_alone.png" %>
+					<% end %>
+				</div>
+				<div class="span6 centered-text">
+					<%= content_tag(:iframe, "", :src => @video, :style => "width: 460px; height: 345px;") %>
+				</div>
+				<div class="span3 centered-text" style="margin-top: 145px;">
+					<%= link_to contest_ratings_path(@contest), title: "Next submission" do %>
+						<% image_tag "next.png" %>
+					<% end %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span12 centered-text">
+					<h2><%= @submitter %>'s submission</h2>
+				</div>
 			</div>
 		</div>
 	</div>

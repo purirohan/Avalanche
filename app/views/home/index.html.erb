@@ -13,10 +13,10 @@
 						<div class="featured">
 							<%= content_tag(:iframe, "", :src => @featured_video, :showinfo => "0", :style => "width: 420px; height: 315px;") %>
 							<div class="featured-stand"></div>
-							<div class="featured-counter"><h2 class="white">Time remaining: 10:11:48</h2></div>
+							<div class="featured-counter"><h2 class="white">End date: <%= @featured.ending %></h2></div>
 						</div>
 				</div>
-				<div class="span6">
+				<div class="span6" style="margin-left: 0px;">
 					<div class="featured-desc">
 						<div class="centered-text">
 							<h1><%= @featured.name %></h1>
@@ -39,18 +39,21 @@
 							<div class="featured-submission">
 								<%= link_to "", [@featured, @sub1], class: "follow" %>
 								<%= content_tag(:iframe, "", :src => embed_video(@sub1), :style => "width: 133px; height: 100px;") %>
+								<h2 class="white"><%= @sub1.score %> point(s)</h2>
 							</div>
 						</div>
 						<div class="span2">
 							<div class="featured-submission">
 								<%= link_to "", [@featured, @sub2], class: "follow" %>
 								<%= content_tag(:iframe, "", :src => embed_video(@sub2), :style => "width: 133px; height: 100px;") %>
+								<h2 class="white"><%= @sub2.score %> point(s)</h2>
 							</div>
 						</div>
 						<div class="span2">
 							<div class="featured-submission">
 								<%= link_to "", [@featured, @sub3], class: "follow" %>
 								<%= content_tag(:iframe, "", :src => embed_video(@sub3), :style => "width: 133px; height: 100px;") %>
+								<h2 class="white"><%= @sub3.score %> point(s)</h2>
 							</div>
 						</div>
 						<div class="span2" style="padding-top: 35px; text-align: right;">
