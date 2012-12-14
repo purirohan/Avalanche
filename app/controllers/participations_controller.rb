@@ -9,7 +9,7 @@ class ParticipationsController < ApplicationController
 		end
 		
 		# can't apply to your own contest!
-		if @contest.contest_owner? == true
+		if @contest.contest_owner?(current_user) == true
 			redirect_to @contest
 		end
 		

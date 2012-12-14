@@ -6,7 +6,13 @@
 				<h1><%= @contest.name %></h1>
 				<h2><%= @submitter %>'s submission</h2>
 				<hr>
-				<%= link_to "Vote up this submission", contest_ratings_path(@contest, :video => @participation.id), method: "post", class: "button large" %> <%= link_to "Next submission", contest_ratings_path(@contest), class: "button" %>
+				<%= link_to contest_ratings_path(@contest, :video => @participation.id), method: "post", title: "Upvote this submission" do %>
+					<% image_tag "logo_alone.png" %>
+				<% end %>
+				<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+				<%= link_to contest_ratings_path(@contest), title: "Next submission" do %>
+					<% image_tag "next.png" %>
+				<% end %>
 				<br><br><br>
 				<%= content_tag(:iframe, "", :src => @video, :style => "width: 540px; height: 405px;") %>
 			</div>

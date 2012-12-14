@@ -6,6 +6,9 @@ class ContestsController < ApplicationController
 
 	def new
 		@contest = Contest.new
+		if !current_user
+			redirect_to log_in_path
+		end
 	end
 	
 	def create

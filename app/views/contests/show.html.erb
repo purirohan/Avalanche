@@ -1,56 +1,60 @@
-<div class="container inner shadow">
+<div class="container" style="padding-top: 40px;">
 	<div class="row">
 		<div class="span12">			
-			<div id="back"><%= link_to "&larr; Back".html_safe, contests_path %></div>
 			<% if @is_owner == true %>
-				<div id="edit"><%= link_to "Edit &rarr;".html_safe, edit_contest_path(@contest) %></div>
+				<div id="edit"><%= link_to "<i class='icon-pencil icon-white'></i>".html_safe, edit_contest_path(@contest), title: "Edit prompt" %></div>
 			<% end %>
-			<div class="centered-text">
-				<h1><%= @contest.name %></h1>
-				<hr>
-			</div>
-			<div class="row">
+			
+			<div class="row" style="position: relative;">
 				<div class="span6">
-					<div class="padded-sides">
-						<h2>By <%= @owner %></h2>
+					<div class="featured">
+						<%= content_tag(:iframe, "", :src => embed_video(@contest), :showinfo => "0", :style => "width: 420px; height: 315px;") %>
+						<div class="featured-stand"></div>
+						<div class="featured-counter"><h2 class="white">Time remaining: 10:11:48</h2></div>
+					</div>
+				</div>
+				<div class="span6 featured-wrap">
+					<div class="featured-desc">
+						<div class="centered-text">
+							<h1><%= @contest.name %></h1>
+						</div>
 						<%= simple_format(@contest.desc) %>
-						<% if @is_owner == false %>
-							<% if @has_submitted == false %>
-								<br>
-								<%= link_to "Apply", new_contest_participation_path(@contest), class: "button" %>
-							<% else %>
-								<br>
-								<%= link_to "Withdraw application", {:controller => "participations", :action => "destroy", :contest_id => @contest.id, :id => @curr_user_submission.id}, method: :delete, confirm: "Are you sure you want to withdraw your application to this contest?", class: "button" %>
+						<hr class="white">
+						<div class="centered-text">
+							<% if @is_owner == false %>
+								<% if @has_submitted == false %>
+									<%= link_to "Apply", new_contest_participation_path(@contest), class: "button" %>
+								<% else %>
+									<%= link_to "View submission", contest_participation_path(@contest, @curr_user_submission), class: "button" %>
+								<% end %>
 							<% end %>
-						<% end %>
-					</div>
-				</div>
-				<div class="span6">
-					<div class="padded-sides centered-text">
-						<%= content_tag(:iframe, "", :src => @video, :style => "width: 380px; height: 285px;") %>
+						</div>
 					</div>
 				</div>
 			</div>
-			<hr>
+		</div>
+	</div>
+</div>
+<div class="separator"></div>
+<div class="cream">
+	<div class="container">
 			<div class="row">
 				<div class="span12">
-					<div class="padded-sides">
-						<h2>Submissions</h2>
-						<% @submissions.each do |submission| %>
-							<%= content_tag :div, class: "submission animated" do %>
-								<div><%= submission.submitter %><span class="dot">&middot;</span><%= submission.score %> point(s)</div>
-								<%= link_to "", [@contest, submission], class: "follow" %>
-								<% if current_user != nil && current_user.id == submission.user_id %>
-									<%= link_to [@contest, submission], method: :delete, confirm: "Are you sure you want to your application to this contest?" do %>
-										<%= content_tag :button, class: "close animated", type: "button" do %>
-											&times;
-										<% end %>
+					<h1>Submissions</h1>
+					<% @submissions.each do |submission| %>
+						<%= content_tag :div, class: "submission animated" do %>
+							<div><%= submission.submitter %><span class="dot">&middot;</span><%= submission.score %> point(s)</div>
+							<%= link_to "", [@contest, submission], class: "follow" %>
+							<% if current_user != nil && current_user.id == submission.user_id %>
+								<%= link_to [@contest, submission], method: :delete, confirm: "Are you sure you want to your application to this contest?" do %>
+									<%= content_tag :button, class: "close animated", type: "button" do %>
+										&times;
 									<% end %>
 								<% end %>
-								<%= content_tag(:iframe, "", :src => embed_video(submission), :class => "shadow", :style => "float: left; width: 263px; height: 197px;") %>
 							<% end %>
+							<%= content_tag(:iframe, "", :src => embed_video(submission), :class => "shadow", :style => "float: left; width: 263px; height: 197px;") %>
 						<% end %>
-					</div>
+					<% end %>
 				</div>
 			</div>
 		</div>

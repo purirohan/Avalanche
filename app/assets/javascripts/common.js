@@ -43,13 +43,12 @@ function bg()
 	var rightnavwidth = $("#rightnav").width();
 	$("#navback").css("width", (margin + rightnavwidth) + "px");
 	
-	var offset = $("#top").height() + $(".main").height() + $("#footer").height() + 25;
-	$("#bottom").css("top", offset + "px");
-	
-	if(offset > $(window).height())
+	if($("body").height() < $(window).height())
 	{
-		$("#footer").addClass("shadow");
+		var offset = $(window).height() - $("body").height() + $("#footer").height();
+		$("#footer").css("height", offset + "px");
 	}
+	
 }
 
 

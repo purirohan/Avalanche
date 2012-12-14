@@ -18,10 +18,14 @@
 				</div>
 				<div class="span6">
 					<div class="featured-desc">
-						<h1><%= @featured.name %></h1>
+						<div class="centered-text">
+							<h1><%= @featured.name %></h1>
+						</div>
 						<%= simple_format(@featured_text) %>
-						<br>
-						<%= link_to "Go to contest &rarr;".html_safe, @featured, class: "button"  %>
+						<hr class="white">
+						<div class="centered-text">
+							<%= link_to "Go to contest &rarr;".html_safe, @featured, class: "button"  %>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -50,7 +54,7 @@
 							</div>
 						</div>
 						<div class="span2" style="padding-top: 35px; text-align: right;">
-							<%= link_to "See all &rarr;".html_safe, @featured %>
+							<%= link_to "See all &rarr;".html_safe, @featured, class: "white" %>
 						</div>
 					</div>
 				</div>
