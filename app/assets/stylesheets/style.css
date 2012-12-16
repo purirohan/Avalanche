@@ -79,21 +79,7 @@ div#header
 	position: relative;
 }
 
-.splash
-{	
-	position: relative;
-	margin-top: 40px;
-}
 
-.splash h1
-{
-	font-size: 64px;
-	color: #666666;
-	text-shadow: none;
-	margin-bottom: 0px;
-	/*color: #666666;
-	text-shadow: none;*/
-}
 
 .main
 {
@@ -334,18 +320,7 @@ h3
 	font-size: 48px;
 }
 
-.climbers
-{
-	background-image: url('blueline.png');
-	background-repeat: horizontal;
-	height: 93px;
-}
 
-.climbers a:not(.follow)
-{
-	color: #FFFFFF;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-}
 
 span.dot
 {
@@ -790,74 +765,6 @@ opacity: 1 }
     width: 120px;
 }
 
-div#loading
-{
-	margin-left: auto;
-	margin-right: auto;
-	width: 200px;
-	height: 40px;
-}
-
-/* loader a-la windows phone */
-span[class*="load-"] {
-    display: inline-block;
-    background: #003399;
-    width: 4px;
-    height: 4px;
-	
-    -webkit-border-radius: 100%;
-	-moz-border-radius: 100%;
-	border-radius: 100%;
-	
-    margin: 12px 2px;
-    position: relative;
-	
-    -webkit-animation: loader 4s infinite;
-    -webkit-animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
-    -webkit-animation-fill-mode: both;
-    -moz-animation: loader 4s infinite;
-    -moz-animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
-    -moz-animation-fill-mode: both;
-    -ms-animation: loader 4s infinite;
-    -ms-animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
-    -ms-animation-fill-mode: both;
-    animation: loader 4s infinite;
-    animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
-    animation-fill-mode: both;
-}
-
-span.load-1 { -webkit-animation-delay: 1s; -moz-animation-delay: 1s; -ms-animation-delay: 1s; animation-delay: 1s; }
-span.load-2 { -webkit-animation-delay: 0.8s; -moz-animation-delay: 0.8s; -ms-animation-delay: 0.8s; animation-delay: 0.8s; }
-span.load-3 { -webkit-animation-delay: 0.6s; -moz-animation-delay: 0.6s; -ms-animation-delay: 0.6s; animation-delay: 0.6s; }
-span.load-4 { -webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; -ms-animation-delay: 0.4s; animation-delay: 0.4s; }
-span.load-5 { -webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; -ms-animation-delay: 0.2s; animation-delay: 0.2s; }
-span.load-6 { -webkit-animation-delay: 0s; -moz-animation-delay: 0s; -ms-animation-delay: 0s; animation-delay: 0s; }
-
-@-webkit-keyframes loader {
-    0% { -webkit-transform: translateX(-30px); opacity: 0; }
-    25% { opacity: 1; }
-    50% { -webkit-transform: translateX(30px); opacity: 0; }
-    100% { opacity: 0; }
-}
-@-moz-keyframes loader {
-    0% { -moz-transform: translateX(-30px); opacity: 0; }
-    25% { opacity: 1; }
-    50% { -moz-transform: translateX(30px); opacity: 0; }
-    100% { opacity: 0; }
-}
-@-ms-keyframes loader {
-    0% { -ms-transform: translateX(-30px); opacity: 0; }
-    25% { opacity: 1; }
-    50% { -ms-transform: translateX(30px); opacity: 0; }
-    100% { opacity: 0; }
-}
-@keyframes loader {
-    0% { transform: translateX(-30px); opacity: 0; }
-    25% { opacity: 1; }
-    50% { transform: translateX(30px); opacity: 0; }
-    100% { opacity: 0; }
-}
-
 
 .white
 {
@@ -946,11 +853,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 textarea
 {
 	min-height: 80px;
-}
-
-input[type="date"]
-{
-
 }
 
 textarea:hover, input[type="text"]:hover, input[type="password"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="date"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover, input[type="number"]:hover, input[type="email"]:hover, input[type="url"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="color"]:hover, .uneditable-input:hover
@@ -1082,38 +984,3 @@ a.button:active , input[type="submit"]:active
 	text-decoration: none;
 	top: -4px; outline: none;
 }
-
-div.team div.row
-{
-	margin-bottom: 30px;
-}
-
-div.team h2
-{
-	margin-bottom: 5px;
-}
-
-div.team span
-{
-	color: #AAAAAA;	
-	font-size: 12px;
-}
-
-div.team p
-{
-	margin-top: 10px;
-}
-
-div.team-member
-{
-	width: 295px;
-	height: 210px;
-	background-size: 295px 210px;
-	border: 5px solid white;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-div#alex { background-image: url('alex.jpg'); }
-div#rohan { background-image: url('rohan.jpg'); }
-div#cris { background-image: url('cris.jpg'); }

@@ -1,0 +1,63 @@
+.splash
+{	
+	position: relative;
+	margin-top: 40px;
+}
+
+.splash h1
+{
+	font-size: 64px;
+	color: #666666;
+	text-shadow: none;
+	margin-bottom: 0px;
+	/*color: #666666;
+	text-shadow: none;*/
+}
+
+.climbers
+{
+	background-image: url('blueline.png');
+	background-repeat: horizontal;
+	height: 93px;
+}
+
+.climbers a:not(.follow)
+{
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+div.team div.row
+{
+	margin-bottom: 30px;
+}
+
+div.team h2
+{
+	margin-bottom: 5px;
+}
+
+div.team span
+{
+	color: #AAAAAA;	
+	font-size: 12px;
+}
+
+div.team p
+{
+	margin-top: 10px;
+}
+
+div.team-member
+{
+	width: 295px;
+	height: 210px;
+	background-size: 295px 210px;
+	border: 5px solid white;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#alex { background-image: url('alex.jpg'); }
+div#rohan { background-image: url('rohan.jpg'); }
+div#cris { background-image: url('cris.jpg'); }
