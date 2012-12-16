@@ -7,18 +7,16 @@
 .splash h1
 {
 	font-size: 64px;
-	color: #666666;
-	text-shadow: none;
+	color: #FFFFFF;
+	text-shadow: 0 0 10px rgba(0,0,0,1);
 	margin-bottom: 0px;
-	/*color: #666666;
-	text-shadow: none;*/
 }
 
 .climbers
 {
-	background-image: url('blueline.png');
-	background-repeat: horizontal;
-	height: 93px;
+	background: #666666;
+	padding-top: 15px;
+	height: 146px;
 }
 
 .climbers a:not(.follow)

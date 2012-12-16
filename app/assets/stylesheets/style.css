@@ -1,6 +1,10 @@
 html
 { 
-	background: #E1E1E1;
+	background: url('bgs/crisp.jpg') no-repeat center center; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 @font-face {
@@ -83,14 +87,9 @@ div#header
 
 .main
 {
-	border-top: 12px solid #7893c2;
-	background: url('bg.jpg') no-repeat center center; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	padding-bottom: 30px;
-	
+	/*border-top: 12px solid #7893c2;*/
+	background: transparent;
+	padding-bottom: 0px;	
 }
 
 .main .container
@@ -264,7 +263,7 @@ h3
 .featured-stand
 {
 	position: absolute;
-	top: 306px;
+	top: 305px;
 	left: -12px;
 	right: -12px;
 	z-index: 0;
@@ -277,7 +276,7 @@ h3
 .featured-counter
 {
 	position: absolute;
-	top: 316px;
+	top: 314px;
 	left: -12px;
 	right: -10px;
 	height: 50px;
@@ -514,7 +513,7 @@ hr
 div.separator
 {
 	height: 12px;
-	background: url('footer.png');
+	background: #666666;
 }
 
 hr.white
