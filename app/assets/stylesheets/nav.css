@@ -2,7 +2,7 @@ div.navbar
 {
 	margin-bottom: 0px;
 
-	background-color: #E1E1E1;
+	background-color: #FFFFFF;
 	/*
 	background-image: -moz-linear-gradient(top, #F1F1F1, #E1E1E1);
 	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F1F1F1), to(#E1E1E1));
@@ -11,7 +11,7 @@ div.navbar
 	background-image: linear-gradient(to bottom, #F1F1F1, #E1E1E1);
 	background-repeat: repeat-x;
 	*/
-	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#E1E1E1E1', endColorstr='#E1E1E1E1', GradientType=0);	
+	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FFFFFF', GradientType=0);	
 	position: relative;
 }
 
@@ -43,7 +43,7 @@ div.navbar-inner
 	background: rgba(0,0,0,0);
 	background-image: rgba(0,0,0,0);
 	background-color: rgba(0,0,0,0);
-	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#E1E1E1E1', endColorstr='#E1E1E1E1', GradientType=0);
+	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FFFFF', endColorstr='#FFFFFF', GradientType=0);
 
 	overflow: hidden;
 	
