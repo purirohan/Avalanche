@@ -1,10 +1,6 @@
 html
 { 
-	background: url('cartoon_bg.jpg') no-repeat center center; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	background: #FFFFFF;
 }
 
 @font-face {
@@ -88,8 +84,19 @@ div#header
 .main
 {
 	/*border-top: 12px solid #7893c2;*/
-	background: transparent;
-	padding-bottom: 0px;	
+	padding-top: 30px;
+	padding-bottom: 30px;	
+	position: relative;
+	background: url("bg_fade.jpg") no-repeat scroll center top #FFFFFF;
+}
+
+.mainwrap
+{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
 }
 
 .main .container
@@ -112,8 +119,6 @@ iframe
 
 .inner
 {
-	margin-top: 30px;
-	margin-bottom: 30px;
 }
 
 .inner.shadow
@@ -121,6 +126,8 @@ iframe
 	background: #FAFAFA;
 	padding-top: 30px;
 	padding-bottom: 30px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 .inner h1
@@ -526,6 +533,8 @@ hr
 
 div.separator
 {
+	position: relative;
+	z-index: 5;
 	height: 12px;
 	background: #666666;
 }

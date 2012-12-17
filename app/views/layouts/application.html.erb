@@ -9,7 +9,7 @@
 </head>
 <body>
 	<%= render "shared/header" %>
-	<div class="main">		
+	<div class="main">
 		<!-- alert or notices -->
 		<% flash.each do |name, msg| %>
 			<%= content_tag :div, msg, :id => "flash_#{name}", class: "alert alert-info centered-text" %>
