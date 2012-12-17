@@ -40,7 +40,7 @@ function bg()
 {
 
 	var margin = ($(window).width() - 940) / 2.0;	
-	var rightnavwidth = $("#rightnav").width();
+	var rightnavwidth = 531; //$("#rightnav").width();
 	$("#navback").css("width", (margin + rightnavwidth) + "px");
 	
 	if($("body").height() < $(window).height())
