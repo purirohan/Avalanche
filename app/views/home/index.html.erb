@@ -65,46 +65,44 @@
 		</div>
 	</div>
 </div>
-<div class="cream">
-	<div class="container">
-		<div class="row">
-			<div class="span7">
-				<div class="padded-sides padded-up-down">
-					<div class="centered-text">
-						<h1>About Avalanche</h1>
-					</div>
-					<div class="largetext">
-						<p>At Avalanche, we curate contests to help get your talent recognized and connected with incredible opportunities. From casting contests for TV roles to startup pitch contests for a meeting with a premier investor, Avalanche uses the <a href="http://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">wisdom of crowds</a> to find the diamonds in the rough. Find a prompt you love and join the Avalanche!</p>
-						<hr>
-						<h2>Partners</h2>
-						<!-- partner logos go here to build trust -->
-					</div>
+<div class="container">
+	<div class="row">
+		<div class="span7">
+			<div class="padded-sides padded-up-down">
+				<div class="centered-text">
+					<h1>About Avalanche</h1>
+				</div>
+				<div class="largetext">
+					<p>At Avalanche, we curate contests to help get your talent recognized and connected with incredible opportunities. From casting contests for TV roles to startup pitch contests for a meeting with a premier investor, Avalanche uses the <a href="http://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">wisdom of crowds</a> to find the diamonds in the rough. Find a prompt you love and join the Avalanche!</p>
+					<hr>
+					<h2>Partners</h2>
+					<!-- partner logos go here to build trust -->
 				</div>
 			</div>
-			<div class="span5">
-				<div class="padded-up-down">
-					<div class="centered-text">
-						<h1>Sign up</h1>
-						<p></p>
-					</div>
-					<div class="centered-inputs">
-						
-						<%= form_for @user do |f| %>
-							<p>
-								<%= f.text_field :name, placeholder: "Full name" %>
-							</p>
-							<p>
-								<%= f.text_field :email, placeholder: "Email" %>
-							</p>				
-							<p>
-								<%= f.password_field :password, placeholder: "Password" %>
-							</p>
-							<p>
-								<%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
-							</p>
-							<p class="button"><%= f.submit "Create account" %></p>
-						<% end %>
-					</div>
+		</div>
+		<div class="span5">
+			<div class="padded-up-down">
+				<div class="centered-text">
+					<h1>Sign up</h1>
+					<p></p>
+				</div>
+				<div class="centered-inputs">
+					
+					<%= form_for @user do |f| %>
+						<p>
+							<%= f.text_field :name, placeholder: "Full name" %>
+						</p>
+						<p>
+							<%= f.text_field :email, placeholder: "Email" %>
+						</p>				
+						<p>
+							<%= f.password_field :password, placeholder: "Password" %>
+						</p>
+						<p>
+							<%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
+						</p>
+						<p class="button"><%= f.submit "Create account" %></p>
+					<% end %>
 				</div>
 			</div>
 		</div>
