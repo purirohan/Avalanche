@@ -22,17 +22,17 @@ html
 }
 
 ::selection {
-    background: #99CCFF;
+    background: #336666;
 	color: #FFFFFF;
 }
 /* Gecko/Mozilla */
 ::-moz-selection {
-    background: #99CCFF;
+    background: #336666;
 	color: #FFFFFF;
 }
 
 ::-webkit-selection {
-	background: #99CCFF;
+	background: #336666;
 	color: #FFFFFF;
 }
 

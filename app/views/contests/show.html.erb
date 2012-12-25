@@ -3,14 +3,10 @@
 	<button class="close">&times;</button>
 	<iframe></iframe>
 	<div class="ratings-control go-left">
-		<%= link_to contest_ratings_path(@contest), :remote => true do %>
-			&larr;
-		<% end %>
+		<%= link_to "", contest_ratings_path(@contest), :remote => true %>
 	</div>
 	<div class="ratings-control go-right">
-		<%= link_to contest_ratings_path(@contest), :remote => true do %>
-			&rarr;
-		<% end %>
+		<%= link_to "", contest_ratings_path(@contest), :remote => true %>
 	</div>
 </div>
 <div class="container" style="padding-top: 40px;">
