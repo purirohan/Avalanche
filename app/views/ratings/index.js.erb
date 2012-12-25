@@ -1,0 +1,6 @@
+
+var iframe = $("div.participation-overlay iframe");
+var id = '<%= @sub_id %>';
+var vid = $("#v-" + id).attr("src");		
+
+iframe.fadeOut(400, function() { iframe.attr("src", vid); iframe.fadeIn(); });

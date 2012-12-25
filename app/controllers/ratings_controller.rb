@@ -5,22 +5,21 @@ class RatingsController < ApplicationController
 		options = Participation.where("contest_id = ? AND user_id != ?", params[:contest_id], @contest.user_id)
 		vid_index = rand(options.count)
 		@vid = options[vid_index]
+		@sub_id = @contest.id.to_s + "_" + @vid.id.to_s
 		
-		#if they've already voted on all the videos in this contest, we simply bring them back to the contest's page.
-		#if Rating.where("contest_id = ? AND user_id = ?", @contest.id, current_user.id).count == Participation.where("contest_id = ? AND donor = ?", @contest.id, false).count
-		#	redirect_to contest_path(@contest)
-		#end
+		puts @sub_id
+		puts "hi"
 		
-		#find a video that they haven't voted on yet.
-		#while Rating.where("contest_id = ? AND user_id = ? AND video = ?", @contest.id, current_user.id, @vid.id).blank? == false
-		#	vid_index = rand(options.count)
-		#	@vid = options[vid_index]
-		#end
-		
-		redirect_to contest_participation_path(params[:contest_id], @vid.id)
+		respond_to do |format|  
+			format.html { redirect_to contest_participation_path(params[:contest_id], @vid.id) }  
+			format.js #index.js.erb 
+		end  
 	end
 
 	def create
+		if !current_user
+			redirect_to log_in_path
+		end
 		rating = Rating.new
 		rating.user_id = current_user.id
 		rating.contest_id = params[:contest_id]

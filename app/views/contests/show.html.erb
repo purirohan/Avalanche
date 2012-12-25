@@ -1,3 +1,18 @@
+<div class="participation-modal"></div>
+<div class="participation-overlay">
+	<button class="close">&times;</button>
+	<iframe></iframe>
+	<div class="ratings-control go-left">
+		<%= link_to contest_ratings_path(@contest), :remote => true do %>
+			&larr;
+		<% end %>
+	</div>
+	<div class="ratings-control go-right">
+		<%= link_to contest_ratings_path(@contest), :remote => true do %>
+			&rarr;
+		<% end %>
+	</div>
+</div>
 <div class="container" style="padding-top: 40px;">
 	<div class="row">
 		<div class="span12">			
@@ -8,7 +23,7 @@
 			<div class="row" style="position: relative;">
 				<div class="span6">
 					<div class="featured">
-						<%= content_tag(:iframe, "", :src => embed_video(@contest), :showinfo => "0", :style => "width: 420px; height: 315px;") %>
+						<%= content_tag(:iframe, "", :src => embed_video(@contest), :style => "width: 420px; height: 315px;") %>
 						<div class="featured-stand"></div>
 						<div class="featured-counter"><h2 class="white">End date: <%= @contest.ending %></h2></div>
 					</div>
@@ -43,7 +58,7 @@
 			<% @submissions.each do |submission| %>
 				<%= content_tag :div, class: "submission animated" do %>
 					<div><%= submission.submitter %><span class="dot">&middot;</span><%= submission.score %> point(s)</div>
-					<%= link_to "", [@contest, submission], class: "follow" %>
+					<%= content_tag :div, "", class: "follow", :id => "c-" + @contest.id.to_s + "_" + submission.id.to_s %>
 					<% if current_user != nil && current_user.id == submission.user_id %>
 						<%= link_to contest_participation_path(@contest, submission), method: :delete, confirm: "Are you sure you want to your application to this contest?" do %>
 							<%= content_tag :button, class: "close animated", type: "button" do %>
@@ -51,7 +66,7 @@
 							<% end %>
 						<% end %>
 					<% end %>
-					<%= content_tag(:iframe, "", :src => embed_video(submission), :class => "shadow", :style => "float: left; width: 263px; height: 197px;") %>
+					<%= content_tag(:iframe, "", :src => embed_video(submission), :class => "shadow", :id => "v-" + @contest.id.to_s + "_" + submission.id.to_s, :style => "float: left; width: 263px; height: 197px;") %>
 				<% end %>
 			<% end %>
 		</div>
