@@ -62,7 +62,7 @@ class ContestsController < ApplicationController
 		if contest.contest_owner?(current_user) == false
 			redirect_to contest
 		end
-		contest.destroy
+		contest.delete
 		redirect_to current_user
 	end
 

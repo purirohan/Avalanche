@@ -21,7 +21,7 @@ class Contest < ActiveRecord::Base
 	end
 	
 	def submissions
-		Participation.where("contest_id = ? AND user_id != ?", self, self.user_id)
+		Participation.where("contest_id = ? AND user_id != ?", self, self.user_id).sort! { |p1,p2| p1.sort_by_score(p2) }
 	end
 	
 	def submitted?(user)
@@ -30,6 +30,13 @@ class Contest < ActiveRecord::Base
 		else
 			Participation.where("contest_id = ? AND user_id = ?", self, user.id).blank? == false
 		end
+	end
+	
+	def delete
+		Participation.where("contest_id = ?", self).each do |p|
+			p.delete
+		end
+		self.destroy
 	end
 	
 end

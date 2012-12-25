@@ -18,30 +18,20 @@
 					<ul id="rightnav" class="nav pull-right">
 						<li>
 							<%= link_to contests_path do %>
-								<%= content_tag :h2, class: "animated-fast" do %>
-									Browse
-								<% end %>
+								<h2 class="animated-fast">Browse</h2>
 							<% end %>
 						</li>
-						<li>
-							<%= link_to contests_path do %>
-								<%= content_tag :h2, class: "animated-fast" do %>
-									Vote
-								<% end %>
-							<% end %>
-						</li>
+
 						<li>
 							<%= link_to new_contest_path do %>
-								<%= content_tag :h2, class: "animated-fast" do %>
-									Submit a prompt
-								<% end %>
+								<h2 class="animated-fast">Submit a prompt</h2>
 							<% end %>
 						</li>
 						<li>
 							<!-- sign in or log in or log out -->
 							<div id="user-nav">
 								<% if current_user %>
-									<h2><%= link_to "Sign out", log_out_path %>
+									<h2><%= link_to "Profile", user_path(current_user), class: "animated-fast" %>/<%= link_to "Sign out", log_out_path %></h2>
 								<% else %>
 									<h2><%= link_to "Sign up", sign_up_path, class: "animated-fast" %>/<%= link_to "sign in", log_in_path %></h2>
 								<% end %>

@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		if @user.save
-			redirect_to root_path, :notice => "You have successfully registered for an account!"
+			session[:user_id] = @user.id
+			redirect_to user_path(@user.id), :notice => "Welcome to Avalanche!"
 		else
 			render "new"
 		end

@@ -11,4 +11,13 @@ class Participation < ActiveRecord::Base
 		User.find(self.user_id).name
 	end
 	
+	def sort_by_score(other)
+		other.score <=> self.score
+	end
+	
+	def delete
+		Rating.destroy_all("video = ?", self.id)
+		self.destroy
+	end
+	
 end
