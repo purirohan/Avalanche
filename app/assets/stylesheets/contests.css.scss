@@ -118,7 +118,7 @@ div.participation-overlay
 	right: 20%;
 	padding: 15px;
 	padding-top: 30px;
-	background: #FFFFFF;
+	background: #F3F3F3;
 	height: 440px;
 	z-index: 105;
 	
@@ -153,7 +153,7 @@ div.participation-overlay iframe
     box-shadow: none;
 }
 
-div.participation-overlay div.ratings-control
+div.participation-overlay div.nav-control
 {
 	position: absolute;
 	top: 0px;
@@ -163,17 +163,17 @@ div.participation-overlay div.ratings-control
 	text-align: center;
 }
 
-div.participation-overlay div.ratings-control.go-left
+div.participation-overlay div.nav-control.go-left
 {
 	left: 0px;
 }
 
-div.participation-overlay div.ratings-control.go-right
+div.participation-overlay div.nav-control.go-right
 {
 	right: 0px;
 }
 
-div.participation-overlay div.ratings-control a
+div.participation-overlay div.nav-control a
 {
 	position: absolute;
 	top: 46%;
@@ -183,19 +183,43 @@ div.participation-overlay div.ratings-control a
 	opacity: 0.4;
 }
 
-div.participation-overlay div.ratings-control a:hover
+div.participation-overlay div.nav-control a:hover
 {
 	opacity: 0.8;
 }
 
-div.participation-overlay div.ratings-control.go-left a
+div.participation-overlay div.nav-control.go-left a
 {
 	left: 15px;
 	background: url('prev.png');
 }
 
-div.participation-overlay div.ratings-control.go-right a
+div.participation-overlay div.nav-control.go-right a
 {
 	right: 15px;
 	background: url('next.png');
+}
+
+div.participation-overlay div.rating-panel
+{
+	position: absolute;
+	height: 40px;
+	width: 83%;
+	background-color: #F3F3F3;
+	background-image: url('like.png');
+	background-repeat: no-repeat;
+	background-position: 95% 8px;
+	margin-left: 8%;
+	top: 30px;
+	cursor: pointer;
+}
+
+div.participation-overlay div.rating-panel:hover
+{
+	background-image: url('like_over.png');
+}
+
+div.participation-overlay div.rating-panel.rated
+{
+	background-image: url('like_over.png');
 }

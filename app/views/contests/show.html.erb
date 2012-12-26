@@ -1,11 +1,14 @@
 <div class="participation-modal"></div>
 <div class="participation-overlay">
 	<button class="close">&times;</button>
+	<% if current_user != nil %>
+		<div class="rating-panel animated-fast"></div>
+	<% end %>
 	<iframe></iframe>
-	<div class="ratings-control go-left">
+	<div class="nav-control go-left">
 		<%= link_to "", contest_ratings_path(@contest), :remote => true %>
 	</div>
-	<div class="ratings-control go-right">
+	<div class="nav-control go-right">
 		<%= link_to "", contest_ratings_path(@contest), :remote => true %>
 	</div>
 </div>
@@ -54,7 +57,7 @@
 			<% @submissions.each do |submission| %>
 				<%= content_tag :div, class: "submission animated" do %>
 					<div><%= submission.submitter %><span class="dot">&middot;</span><%= submission.score %> point(s)</div>
-					<%= content_tag :div, "", class: "follow", :id => "c-" + @contest.id.to_s + "_" + submission.id.to_s %>
+					<%= content_tag :div, "", class: "follow", 'data-voted' => submission.voted?(current_user), 'data-score' => submission.score, :id => "c-" + @contest.id.to_s + "_" + submission.id.to_s %>
 					<% if current_user != nil && current_user.id == submission.user_id %>
 						<%= link_to contest_participation_path(@contest, submission), method: :delete, confirm: "Are you sure you want to your application to this contest?" do %>
 							<%= content_tag :button, class: "close animated", type: "button" do %>

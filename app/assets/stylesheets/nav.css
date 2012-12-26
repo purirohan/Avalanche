@@ -26,6 +26,14 @@ div#navback
 	right: 0;
 }
 
+div#navname
+{
+	position: absolute;
+	z-index: 1;
+	top: 20px;
+	right: 0;
+}
+
 div.navbar ul.nav 
 {
 	margin: 0px;

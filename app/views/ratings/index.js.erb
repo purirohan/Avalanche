@@ -3,4 +3,19 @@ var iframe = $("div.participation-overlay iframe");
 var id = '<%= @sub_id %>';
 var vid = $("#v-" + id).attr("src");		
 
+// replace with next submission
 iframe.fadeOut(400, function() { iframe.attr("src", vid); iframe.fadeIn(); });
+
+// update rating panel language
+$("div.rating-panel").attr("title", "Endorse this entry.");
+
+// and appearance
+var has_voted = '<%= @has_voted %>';
+if(has_voted == "true")
+{
+	$("div.rating-panel").addClass("rated").attr("title", "You have already endorsed this entry.");
+}
+else
+{
+	$("div.rating-panel").removeClass("rated");
+}

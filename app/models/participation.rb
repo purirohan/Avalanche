@@ -15,6 +15,14 @@ class Participation < ActiveRecord::Base
 		other.score <=> self.score
 	end
 	
+	def voted?(user)
+		if user == nil
+			false
+		else
+			Rating.where("contest_id = ? AND user_id = ? AND video = ?", self.contest_id, user.id, self.id).blank? == false
+		end
+	end
+	
 	def delete
 		Rating.destroy_all("video = ?", self.id)
 		self.destroy

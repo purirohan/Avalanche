@@ -16,9 +16,28 @@ $(document).ready(function(event) {
 		overlay.fadeIn();
 		var id = $(this).attr("id").split("-");
 		var clicked = $("iframe#v-" + id[1]);
-		var vid = clicked.attr("src");		
+		var vid = clicked.attr("src");
+		iframe.attr("id", "i-" + id[1]);
 		iframe.attr("src", vid);
+		$("div.rating-panel").attr("title", "Endorse this entry.");
 		
+		if($(this).attr("data-voted") == "true")
+		{
+			$("div.rating-panel").addClass("rated").attr("title", "You have already endorsed this entry.");
+		}
+		
+	});
+	
+	$("div.rating-panel").click(function(event) {
+	
+		var contest_participation = iframe.attr("id").split("-")[1].split("_");
+		var con = contest_participation[0];
+		var par = contest_participation[1];
+		
+		$.post("/contests/" + con + "/ratings?video=" + par, {}, function() {}, "json");
+		
+		$("div.rating-panel").addClass("rated").attr("title", "You have already endorsed this entry.");
+	
 	});
 
 });

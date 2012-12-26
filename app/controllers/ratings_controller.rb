@@ -2,17 +2,15 @@ class RatingsController < ApplicationController
 	
 	def index
 		@contest = Contest.find(params[:contest_id])
-		options = Participation.where("contest_id = ? AND user_id != ?", params[:contest_id], @contest.user_id)
+		options = @contest.all_submissions
 		vid_index = rand(options.count)
 		@vid = options[vid_index]
 		@sub_id = @contest.id.to_s + "_" + @vid.id.to_s
-		
-		puts @sub_id
-		puts "hi"
+		@has_voted = Participation.find(@vid.id).voted?(current_user)
 		
 		respond_to do |format|  
 			format.html { redirect_to contest_participation_path(params[:contest_id], @vid.id) }  
-			format.js #index.js.erb 
+			format.js # views/ratings/index.js.erb by default
 		end  
 	end
 
@@ -24,10 +22,13 @@ class RatingsController < ApplicationController
 		rating.user_id = current_user.id
 		rating.contest_id = params[:contest_id]
 		rating.video = params[:video]
-		if Rating.where("contest_id = ? AND user_id = ? AND video = ?", rating.contest_id, rating.user_id, rating.video).blank?
+		participation = Participation.find(rating.video)
+		if participation.voted?(current_user) == false
 			rating.save
 		end
-		redirect_to contest_ratings_path(params[:contest_id])
+		respond_to do |format|
+			format.html { redirect_to contest_ratings_path(params[:contest_id]) }
+		end
 	end
 
 end

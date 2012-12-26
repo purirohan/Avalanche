@@ -32,12 +32,12 @@ class ContestsController < ApplicationController
 		@is_owner = @contest.contest_owner?(current_user)
 		@has_submitted = @contest.submitted?(current_user)
 		if @has_submitted
-			@curr_user_submission = Participation.where("contest_id = ? AND user_id = ?", params[:id], current_user.id)[0]
+			@curr_user_submission = @contest.curr_user_submission(current_user)
 		end
 		@owner = User.find(@contest.user_id).name
 		@video = embed_video(@contest)
 		
-		@submissions = @contest.submissions
+		@submissions = @contest.all_submissions
 		
 	end
 	
