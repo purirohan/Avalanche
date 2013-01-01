@@ -114,8 +114,10 @@ div.participation-overlay
 {
 	position: fixed;
 	top: 10%;
-	left: 20%;
-	right: 20%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 800px;
 	padding: 15px;
 	padding-top: 30px;
 	background: #F3F3F3;
@@ -145,9 +147,10 @@ div.participation-overlay button.close:hover
 
 div.participation-overlay iframe
 {
-	margin-left: 10%;
-	width: 80%;
-	height: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 640px;
+	height: 400px;
 	-webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;

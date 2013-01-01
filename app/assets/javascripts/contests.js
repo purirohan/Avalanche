@@ -1,5 +1,29 @@
 
+/**
+ * Delay an event which fires repeatedly.
+ */
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){
+    clearTimeout (timer);
+    timer = setTimeout(callback, ms);
+  };
+})();
+
+function overlayShift()
+{
+	var margin = ($(window).width() - 800) / 2.0;
+	$("div.participation-overlay").css("left", margin + "px");
+}
+
 $(document).ready(function(event) {
+
+	$(window).resize(function() {
+		delay(function(){		
+			overlayShift();	
+		}, 200);
+	});
+	overlayShift();
 	
 	var modal = $("div.participation-modal");
 	var overlay = $("div.participation-overlay");
